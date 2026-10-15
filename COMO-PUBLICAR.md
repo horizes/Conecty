@@ -9,6 +9,6 @@
 
 O `index.html` funciona sozinho: aplicação, fonte, logotipo e licença estão incorporados. Os outros arquivos documentam a demonstração. Não há instalação, build, npm ou configuração de variáveis para esta prévia.
 
-A demonstração inclui três empresas fictícias e valores demonstrativos. Não se conecta ao Omie. A integração com dados reais requer o servidor da aplicação, fora do GitHub Pages.
+O painel é exclusivo da sua empresa e usa valores ilustrativos. Não se conecta ao Omie. A integração com dados reais requer o servidor da aplicação, fora do GitHub Pages.
 
 Documento oficial: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site

@@ -1,7 +1,7 @@
-# Conecty — Dashboard demonstrativo
+# Conecty — Meu painel financeiro
 
-Demonstração visual interativa do portal financeiro Conecty Gestão, com empresas e valores fictícios. A interface funciona como uma página estática e não acessa o Omie.
+Prévia visual exclusiva da sua empresa, com valores ilustrativos. Inclui gráficos interativos, consulta de lançamentos e filtros de período e conta. A demonstração funciona como uma página estática e não consulta o Omie.
 
-Identidade visual baseada em https://conectygestao.com.br/. Fonte Manrope sob SIL Open Font License (arquivo Manrope-OFL.txt).
+Abra index.html ou publique no GitHub Pages seguindo COMO-PUBLICAR.md. A aplicação, a fonte e o logotipo estão incorporados no HTML.
 
-Para visualizar: abra index.html ou a página publicada pelo GitHub Pages.
+Identidade visual: Conecty Gestão. Fonte Manrope sob SIL Open Font License; licença incluída no HTML e em Manrope-OFL.txt.
