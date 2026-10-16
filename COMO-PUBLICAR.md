@@ -7,7 +7,15 @@
 5. Selecione o branch `main` e a pasta `/ (root)`, depois clique em **Save**.
 6. Aguarde a publicação. O link aparece na própria seção Pages.
 
-O `index.html` funciona sozinho: aplicação, fonte, logotipo e licença estão incorporados. Os outros arquivos documentam a demonstração. Não há instalação, build, npm ou configuração de variáveis para esta prévia.
+O `index.html` funciona sozinho para explorar o dashboard: aplicação, fonte, logotipo e licença estão incorporados. Não há instalação, build, npm ou configuração de variáveis para esta prévia.
+
+## Atualizar o endereço já publicado
+
+Este pacote está configurado para **https://horizes.github.io/Conecty/**. No repositório **Conecty**, envie e substitua todos os arquivos extraídos, incluindo `index.html`, `favicon.ico`, `favicon.svg`, `favicon.png`, `apple-touch-icon.png` e `conecty-compartilhar-v1.png`. Não envie apenas o HTML ou o ZIP.
+
+O favicon usa o símbolo da logo original da Conecty. A imagem de compartilhamento usa a marca sobre fundo escuro, em 1200 × 630 pixels. As tags Open Graph e Twitter apontam para a imagem por HTTPS no endereço público e ficam diretamente no HTML inicial. Não há informações de clientes na imagem de compartilhamento.
+
+A imagem precisa estar publicada em `https://horizes.github.io/Conecty/conecty-compartilhar-v1.png`. Arquivos locais `file://` não geram prévias públicas. A atualização da visualização em conversas depende também do cache da rede social; se necessário, teste um novo envio com `https://horizes.github.io/Conecty/?v=logo1` depois da publicação.
 
 O painel é exclusivo da sua empresa e usa valores ilustrativos. Não se conecta ao Omie. A integração com dados reais requer o servidor da aplicação, fora do GitHub Pages.
 
