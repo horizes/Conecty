@@ -1,83 +1,175 @@
-# Conectar clientes ao Omie pelo painel Conecty
+# Conecty: GitHub Pages + Supabase para testes
 
-O cadastro agora inclui **Conexão Omie**, com campos **App Key** e **App Secret**, em **Novo cliente** e **Editar cadastro**. Depois da implantação inicial do servidor, a equipe cadastra clientes e troca as chaves pelo próprio site, sem editar arquivos ou republicar a aplicação a cada cliente.
+O site permanece em **https://horizes.github.io/Conecty/**. O Supabase fornece somente login, banco e a função que consulta o Omie. Este ambiente é destinado a testes com contas e dados de teste.
 
-A página principal é a administração. Cada cliente recebe somente seu endereço individual e acessa os próprios dados.
+Você fará a configuração inicial uma vez. Depois, cadastra empresas, informa App Key/App Secret e abre os dashboards pelo próprio site. Não é necessário criar um arquivo por empresa.
 
-## 1. Ativação inicial da aplicação — uma vez
+## Arquivos desta entrega
 
-O endereço https://horizes.github.io/Conecty/ é a demonstração estática. Nela, os campos de chaves ficam desativados. O GitHub Pages hospeda os arquivos do visual; a integração real utiliza uma aplicação com servidor, banco e autenticação. [Como funciona o GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages).
+| Arquivo | Destino |
+|---|---|
+| **Conecty-GitHub-Pages.zip** | Extraia e envie os arquivos à raiz do repositório Conecty. |
+| **Conecty-Supabase-Backend.zip** | Extraia para instalar o banco e a função no Supabase. Não precisa enviá-lo ao GitHub. |
+| **Conecty-Codigo-Fonte.zip** | Projeto editável completo, para futuras alterações. |
 
-O projeto **Conecty-Codigo-Fonte.zip** contém o servidor compatível com Sites/Cloudflare Workers. Essa infraestrutura ainda precisa ser implantada; enviar o pacote estático para o GitHub não a ativa.
+O pacote do site contém `index.html` (admin), `admin.html` (atalho), `cliente.html` (dashboard individual), `cliente-demo.html` (visual ilustrativo), `conecty-config.js`, ícones, imagem social e este guia. O pacote do servidor contém `INSTALAR-BANCO.sql`, `index.ts` (função já compilada), `GERAR-CHAVE.html` e `config.toml` (opcional para quem usa CLI).
 
-Na implantação:
+## 1. Criar o projeto gratuito no Supabase
 
-1. Configure o login hospedado do Sites e confira a audiência permitida para a equipe e os clientes. A aplicação confere o e-mail autenticado; autorizar um e-mail no cadastro não altera a audiência da hospedagem.
-2. Vincule um banco D1 com o nome **DB**. A declaração já está no projeto.
-3. Aplique as migrações de `drizzle/` em ordem: `0000_wide_wolfpack.sql` cria os cadastros e `0001_dazzling_the_hand.sql` adiciona o armazenamento criptografado. Em uma atualização, aplique apenas as migrações ainda pendentes, usando o controle de migrações da implantação.
-4. Configure **CONECTY_ADMIN_EMAILS** com os e-mails da Conecty autorizados, separados por vírgula.
-5. Crie **CONECTY_CREDENTIALS_KEY** como **segredo do servidor**: uma chave aleatória de 32 bytes, codificada em base64. Use um gerenciador de segredos ou um gerador criptográfico confiável. Guarde uma cópia em local seguro. Ela protege as conexões de todos os clientes; não é a App Key do Omie. Não a inclua no código, no repositório, no HTML ou no chat.
-6. Configure **CONECTY_SITE_URL** com o endereço público completo do portal, terminado em `/`, e publique a aplicação com HTTPS.
-7. Entre no endereço principal com uma conta autorizada da equipe. Abra **Novo cliente**: os campos Omie devem estar habilitados. Se aparecer “conexão segura precisa ser ativada”, confira o segredo, o banco, as migrações e o HTTPS.
+1. Acesse **https://supabase.com/dashboard** e crie/entre na sua conta.
+2. Crie uma organização no plano **Free**, se ainda não houver uma.
+3. Clique em **New project** e escolha um nome, como **conecty-testes**.
+4. Defina a senha do banco solicitada e guarde-a no seu gerenciador. Ela não vai no GitHub nem no painel Conecty.
+5. Escolha a região e mantenha a **Data API** habilitada; a função usa a API REST do banco.
+6. Aguarde o projeto ficar pronto.
 
-No fluxo Sites, configure segredos pelas ferramentas nativas da plataforma. Em uma implantação própria compatível, a Cloudflare documenta o armazenamento de [secrets de Workers](https://developers.cloudflare.com/workers/configuration/secrets/). Valores secretos não devem entrar em arquivos versionados ou variáveis públicas do frontend.
+O plano gratuito tem cotas e pausa projetos após uma semana de inatividade. Se isso ocorrer, reative o projeto antes do próximo teste. [Plano Free](https://supabase.com/pricing).
 
-Esta versão preserva o login Sites/ChatGPT. Se hospedar diretamente fora desse ambiente, adapte e valide `app/chatgpt-auth.ts` com autenticação equivalente antes de liberar os dados. Cabeçalhos de identidade enviados pelo visitante não podem ser considerados autenticação.
+## 2. Instalar a tabela
 
-## 2. Obter as chaves do aplicativo da empresa
+1. Extraia **Conecty-Supabase-Backend.zip**.
+2. No Supabase, abra **SQL Editor → New query**.
+3. Abra o arquivo **INSTALAR-BANCO.sql** em um editor e copie todo o conteúdo.
+4. Cole no SQL Editor e clique em **Run**.
+5. Confira que a tabela **public.conecty_clients** foi criada.
 
-No Omie, entre com um usuário administrador. Abra **Meus Aplicativos → engrenagem da empresa → Resumo do App → Chave de Integração (API)**. Copie a **App Key** e use **Exibir** para consultar o **App Secret**. Também é possível consultar os aplicativos no [Portal do Desenvolvedor Omie](https://developer.omie.com.br/). [Instruções oficiais do Omie](https://ajuda.omie.com.br/pt-BR/articles/499061-obtendo-a-chave-de-acesso-para-integracoes-de-api).
+O script habilita RLS e remove o acesso direto de usuários anônimos e autenticados à tabela. Somente a função do servidor, após conferir o acesso, lê ou grava os registros. A coluna `omie_credentials` guarda o par Omie criptografado.
 
-Use o par do aplicativo correspondente ao cliente. Para conectar, basta obter as chaves existentes; não é necessário gerar novas chaves no Omie.
+## 3. Criar as contas de teste
 
-## 3. Cadastrar e conectar pelo site — para cada cliente
+No Supabase, abra **Authentication → Users → Add user → Create new user**.
 
-1. Entre na administração e clique em **Novo cliente**.
-2. Informe nome, segmento, responsável, contato e meta mensal.
-3. Confira o identificador, por exemplo **cliente-piloto**. Ele forma o endereço `/empresa/cliente-piloto`.
-4. Preencha os **e-mails autorizados a acessar**. O e-mail de contato só terá acesso se também estiver nessa lista.
-5. Em **Conexão Omie**, cole **App Key** e **App Secret**.
-6. Mantenha **Em preparação** enquanto confere o cadastro e clique em **Criar cliente**. Cadastro e chaves são salvos juntos no servidor.
-7. Edite o cadastro e selecione **Ativo** quando estiver pronto para consultar. Para ativar, é obrigatório ter ao menos um e-mail autorizado.
-8. Clique em **Abrir painel** e confira os recebimentos, pagamentos, categorias, contas e resultado de caixa contra o Omie, no mesmo período e regime.
-9. Depois da conferência, use **Copiar link do cliente** para obter o endereço individual e compartilhe com o responsável. Ele entra com seu e-mail autorizado.
+Crie duas contas, com senhas exclusivas para o teste:
 
-Também é possível criar o cadastro sem chaves e conectar depois por **Editar cadastro → Conexão Omie**, ou pela ação **Conectar Omie**. Não é necessário criar outro arquivo HTML nem alterar JSON para cada nova empresa.
+- **admin@conecty.test** — administração Conecty.
+- **cliente@conecty.test** — visualização da empresa de teste.
 
-**Omie configurado / Chaves cadastradas** significa que o par foi armazenado, e não que o Omie já confirmou sua validade. A consulta real ocorre ao abrir o dashboard. Credenciais incorretas ou limites da API geram erro legível; nenhum dado financeiro fictício substitui uma consulta real com falha.
+Marque **Auto Confirm User**, ou a opção equivalente de confirmar o e-mail ao criar a conta. Esses são endereços fictícios: este fluxo usa senha e não depende de enviar e-mails.
 
-## 4. Alterar a conexão ou os dados do cliente
+Em **Authentication → Sign In / Providers**, mantenha o provedor **Email** habilitado. Desative o cadastro público de novos usuários (Allow new users to sign up), pois as contas do piloto serão criadas manualmente por você.
 
-- **Editar cadastro:** atualiza identidade, meta, responsável, contato e e-mails autorizados.
-- **Substituir chaves Omie:** abra a edição e preencha os dois campos com o novo par. Deixar ambos vazios mantém as chaves atuais. Informar apenas um deles impede o salvamento. As chaves salvas não são exibidas nem devolvidas ao navegador.
-- **Pausar acesso:** bloqueia novas consultas no servidor. Uma página já aberta pode manter os dados que carregou anteriormente.
-- **Ativar cliente:** libera consultas de um cadastro com e-mail autorizado e conexão configurada.
-- **Atualizar lista:** consulta os cadastros compartilhados pela equipe.
+Você pode usar outros e-mails de teste. Nesse caso, use os mesmos valores na configuração do administrador e na lista de acesso da empresa. A função exige e-mail confirmado no Supabase e não confia em e-mails enviados pelo navegador.
 
-As chaves são transmitidas por HTTPS e armazenadas com AES-GCM de 256 bits no D1, vinculadas ao identificador do cliente. A chave de criptografia fica em um segredo separado do servidor. Os campos existem temporariamente na memória do formulário enquanto são preenchidos e são limpos ao fechar ou salvar com sucesso; não são gravados em localStorage, links, exportações ou HTML. Somente administradores autorizados podem cadastrar ou substituir o par.
+## 4. Configurar três segredos do servidor
 
-Não substitua `CONECTY_CREDENTIALS_KEY` sem um plano de migração: as conexões existentes dependem dela. Se ela for perdida ou trocada sem migração, será necessário cadastrar novamente o par Omie de cada cliente. Mantenha backups e o segredo com acesso restrito.
+No Supabase, abra **Edge Functions → Secrets** e adicione:
 
-Cadastros antigos em **OMIE_COMPANIES_JSON** continuam compatíveis. Para esses identificadores, o par gravado pelo formulário tem precedência sobre o par antigo. Não é necessário criar ou manter essa variável para clientes novos. Mapeamentos avançados de categorias/DFC já existentes são preservados. A organização visual da DFC continua personalizável no próprio dashboard; preferências do visitante são locais ao navegador.
+| Nome | Valor |
+|---|---|
+| `CONECTY_ADMIN_EMAILS` | `admin@conecty.test` — ou os administradores escolhidos, separados por vírgula. |
+| `CONECTY_SITE_URL` | `https://horizes.github.io/Conecty/` |
+| `CONECTY_CREDENTIALS_KEY` | A chave de proteção gerada abaixo. Não é uma chave do Omie. |
 
-## 5. Conferência dos dados
+Para gerar a chave de proteção:
 
-O conector lê os últimos seis meses completos e o mês atual, com cache de até cinco minutos. Substituir as credenciais impede reutilizar o cache da conexão anterior. Títulos em aberto são separados dos movimentos realizados. Meses sem cobertura na DFC aparecem como **n.d.**. Resultado de caixa não equivale a lucro contábil ou saldo bancário.
+1. Abra **GERAR-CHAVE.html**, do pacote do servidor, no navegador do seu computador.
+2. Clique em **Gerar chave de proteção** e depois em **Copiar chave**.
+3. Cole o valor no segredo **CONECTY_CREDENTIALS_KEY**, no Supabase, e salve.
+4. Preserve esse segredo. Ele deve continuar o mesmo enquanto houver conexões gravadas.
+
+O gerador funciona localmente, sem enviar ou salvar o valor. A chave de 32 bytes em base64 protege as credenciais com AES-GCM de 256 bits, vinculadas ao identificador da empresa. Não envie o valor ao GitHub, em links, no chat ou no arquivo de configuração pública. Se excluir/trocar esse segredo sem migrar os registros, precisará informar novamente as chaves Omie de cada empresa.
+
+As variáveis padrão de acesso ao projeto (`SUPABASE_URL`, chaves públicas e chaves de servidor) são fornecidas pelo ambiente hospedado do Supabase. A função aceita os nomes atuais e os legados. Não é necessário copiar a Secret key/service_role para o site. [Segredos das funções](https://supabase.com/docs/guides/functions/secrets).
+
+## 5. Publicar a função conecty-api
+
+1. Abra **Edge Functions → Deploy a new function → Via Editor**.
+2. Escolha o nome **conecty-api**, exatamente assim.
+3. No editor, abra o arquivo principal `index.ts`.
+4. Substitua todo o exemplo pelo conteúdo completo do **index.ts** fornecido no pacote do servidor. Ele já está compilado e contém as dependências da aplicação; você não precisa instalar npm ou montar imports.
+5. Mantenha a verificação de JWT da plataforma habilitada (padrão). O arquivo `config.toml` também declara `verify_jwt = true` para publicação por CLI.
+6. Clique em **Deploy function** e aguarde a confirmação.
+
+A função ficará em `https://SEU-PROJETO.supabase.co/functions/v1/conecty-api`. Além da verificação da plataforma, ela consulta o Supabase Auth a cada requisição para verificar a sessão e o e-mail confirmado; a administração ainda exige a lista `CONECTY_ADMIN_EMAILS`.
+
+Ela aceita chamadas do navegador com origem **https://horizes.github.io**. A origem não inclui `/Conecty/`; o endereço completo continua configurado em `CONECTY_SITE_URL`. Isso habilita o navegador a chamar o servidor externo. A autorização dos dados depende da sessão e das permissões, e não apenas dessa regra de origem.
+
+Instruções oficiais: [Editor de funções](https://supabase.com/docs/guides/functions/quickstart-dashboard), [autenticação](https://supabase.com/docs/guides/functions/auth), [CORS](https://supabase.com/docs/guides/functions/cors).
+
+## 6. Atualizar o GitHub Pages
+
+1. Extraia **Conecty-GitHub-Pages.zip**.
+2. Abra o repositório **horizes/Conecty** no GitHub.
+3. Em **Add file → Upload files**, envie os arquivos extraídos para a raiz do repositório e confirme o commit. `index.html` precisa ficar diretamente na raiz; não envie apenas o ZIP.
+4. Preserve o workflow `.github/workflows/static.yml` que já publica o site. Aguarde a execução de publicação ficar verde em **Actions**.
+5. Abra **https://horizes.github.io/Conecty/** e atualize a página.
+
+Se a publicação da adaptação já tiver sido aplicada nesta conversa, a tela inicial mostrará **Conecte seu painel**. Nesse caso, você pode seguir direto para a configuração abaixo. O Supabase ainda precisa ser instalado por você nas etapas anteriores.
+
+## 7. Conectar o site ao seu projeto
+
+No Supabase, use **Connect** ou **Settings → API Keys / Data API** para localizar:
+
+- **Project URL:** `https://seu-projeto.supabase.co`.
+- **Publishable key:** começa com `sb_publishable_`. A chave legada **anon** também é aceita.
+
+Na tela **Conecte seu painel**, no GitHub Pages:
+
+1. Cole a Project URL e a Publishable key.
+2. Clique em **Salvar conexão neste navegador**.
+3. Clique em **Baixar conecty-config.js**.
+4. Envie esse arquivo gerado à raiz de **horizes/Conecty**, substituindo o arquivo vazio que acompanha o pacote.
+5. Aguarde a publicação e atualize o site. A tela de login estará disponível para qualquer navegador com a mesma configuração pública.
+
+Você pode clicar em **Continuar para o login** antes do upload para testar somente no navegador atual. A configuração local não é compartilhada: para testar a conta do cliente em outra aba privada/navegador, publique também o arquivo gerado.
+
+**O arquivo é público por definição.** Ele contém apenas a URL e a Publishable/anon key. O configurador rejeita Secret key e service_role. App Key/App Secret do Omie só entram no cadastro após o login. [Tipos de chaves Supabase](https://supabase.com/docs/guides/getting-started/api-keys).
+
+## 8. Cadastrar a empresa e informar o Omie
+
+1. Entre no site como **admin@conecty.test**, com a senha criada na etapa 3.
+2. Clique em **Novo cliente**.
+3. Use um nome de teste e confira o identificador, por exemplo **empresa-teste**.
+4. Em **E-mails autorizados a acessar**, informe **cliente@conecty.test**.
+5. Em **Conexão Omie**, preencha App Key e App Secret de um aplicativo Omie usado para testes.
+6. Selecione **Ativo** e clique em **Criar cliente**.
+7. Clique em **Abrir painel** para consultar o Omie. Compare os valores com o sistema no mesmo período e conta.
+
+Você pode salvar sem chaves e conectar depois por **Editar cadastro → Conexão Omie**. Ao editar, ambos os campos vazios preservam a conexão atual. Para substituí-la, preencha os dois campos. Cadastro e chaves são gravados juntos; uma versão antiga do cadastro não sobrescreve uma edição mais recente.
+
+**Omie configurado** indica que o par foi armazenado, não que já foi validado pelo Omie. A consulta acontece ao abrir o dashboard. Se a consulta falhar, o painel mostra erro, sem substituir os dados por valores ilustrativos.
+
+No Omie, as chaves são obtidas por um administrador em **Meus Aplicativos → engrenagem da empresa → Resumo do App → Chave de Integração (API)**. [Instruções oficiais](https://ajuda.omie.com.br/pt-BR/articles/499061-obtendo-a-chave-de-acesso-para-integracoes-de-api).
+
+## 9. Testar o acesso individual
+
+1. Na administração, use **Copiar link do cliente**. O endereço terá o formato `https://horizes.github.io/Conecty/cliente.html?empresa=empresa-teste`.
+2. Abra o link em outro navegador ou janela privada.
+3. Entre como **cliente@conecty.test**.
+4. Confira que aparecem somente o perfil e os dados dessa empresa.
+5. Tente abrir a administração ou alterar `empresa=` para um cadastro não autorizado: a API deve recusar o acesso.
+6. No admin, pause o cadastro e confirme que novas consultas ficam bloqueadas. Uma página aberta pode manter os dados que já carregou.
+
+Também confira no Supabase que a tabela não pode ser lida com a chave pública ou uma sessão comum pela Data API. O script da etapa 2 retira esses privilégios; nunca libere leitura pública da coluna de credenciais.
+
+## Como o teste funciona
+
+- O site, as telas e os gráficos permanecem no GitHub Pages.
+- A senha de teste é enviada diretamente ao Supabase Auth. A sessão fica em `sessionStorage`, nesta aba; a senha não é persistida pela aplicação.
+- A função verifica a sessão, o administrador e os e-mails autorizados antes de abrir as credenciais.
+- As chaves Omie digitadas no formulário são enviadas por HTTPS ao servidor e criptografadas no banco. Não são retornadas ao navegador, copiadas em links ou gravadas em localStorage.
+- A função usa o par Omie somente em consultas de leitura à API oficial. Alterações e baixas continuam no Omie.
+- A integração lê os últimos seis meses completos e o mês atual; títulos em aberto incluem vencimentos até 60 dias à frente. Cache de até cinco minutos no servidor; consultas ao abrir, pelo botão e enquanto o painel fica aberto. Não há sincronização em segundo plano quando fechado.
+- A DFC usa categorias da própria empresa e permite organização visual local por grupo. Períodos sem cobertura mostram **n.d.**. Resultado de caixa não equivale a lucro contábil ou saldo bancário.
 
 ## Se não funcionar
 
-| Situação | Verificação |
-| --- | --- |
-| Campos Omie desativados no GitHub | É a demonstração. Implantar o servidor para conectar dados reais. |
-| Administração restrita | Conferir o e-mail autenticado em `CONECTY_ADMIN_EMAILS`. |
-| Banco sem configuração / migrações | Vincular `DB` e aplicar as migrações pendentes da implantação. |
-| Conexão segura não ativada | Conferir HTTPS e o segredo `CONECTY_CREDENTIALS_KEY`: 32 bytes aleatórios em base64. |
-| Omie pendente | Editar o cliente, preencher as duas chaves e salvar. |
-| Não foi possível abrir a conexão | Conferir a chave de criptografia da implantação; se foi perdida, cadastrar o par Omie novamente. |
-| Informe as chaves juntas | Preencher ambos os campos, ou apagar ambos para manter a conexão atual. |
-| Empresa indisponível | Conferir situação Ativo, vínculo Omie e e-mail autorizado. |
-| Omie não concluiu a consulta | Conferir aplicativo, par de chaves, permissões e limites da API. |
-| Cadastro alterado por outra pessoa | Recarregar a lista antes de salvar novamente. |
-| Valores diferentes | Comparar conta, período, regime de caixa, transferências e rateios. |
+| Situação | Confira |
+|---|---|
+| Ainda aparece o visual antigo | Aguarde Actions concluir e atualize a página; confira se os novos HTMLs estão na raiz. |
+| Volta ao configurador em outro navegador | Publique o `conecty-config.js` gerado. A configuração local só vale no navegador atual. |
+| Configuração rejeitada | Use Project URL e Publishable/anon key; nenhuma chave Secret/service_role no site. |
+| Não foi possível entrar | Conta criada no mesmo projeto, senha correta, provedor Email habilitado e usuário confirmado. Confira se o projeto Free está pausado. |
+| Sessão expirada / 401 | Entre novamente. Confirme que está usando o mesmo projeto no site e na função. Não desative o login para contornar o erro. |
+| Administração restrita | E-mail da conta precisa constar exatamente em `CONECTY_ADMIN_EMAILS`. |
+| Erro ao consultar o servidor / CORS | Função **conecty-api** publicada, URL correta e `CONECTY_SITE_URL` configurado com o endereço do GitHub Pages. |
+| Confira instalação do banco | Rode o SQL no mesmo projeto e mantenha a Data API habilitada. |
+| Campos Omie desativados | Confira `CONECTY_CREDENTIALS_KEY` no Supabase: 32 bytes em base64 gerados pelo helper. |
+| Não foi possível atualizar dados financeiros | Revise aplicativo, chaves, permissões e limites do Omie. Confira também Logs da função sem inserir ou publicar credenciais. |
+| Nenhuma empresa disponível | Cadastro Ativo, conexão gravada e e-mail autorizado; para testar o cliente, use a conta definida no cadastro. |
 
-Foram verificados criptografia, adulteração, isolamento entre clientes, persistência atômica em SQLite, API, tipos e build com dados de teste. O runtime Workers local não iniciou neste Windows; a aplicação das migrações no D1 remoto e a consulta com uma conta Omie real ainda dependem da implantação. Nenhuma credencial real foi utilizada.
+## Estado de validação da entrega
+
+Foram executados testes automatizados de login/renovação, roteamento para a função externa, CORS, autorização, preservação e criptografia de chaves, conflito de edição e isolamento de empresas. Os testes do adaptador PostgREST usam respostas simuladas; a instalação SQL, RLS, a função e o login no projeto hospedado devem ser conferidos nas etapas acima. Nenhuma conta Supabase ou Omie real foi configurada nesta entrega. Não foram usadas credenciais reais.
+
+O ambiente é de testes. A operação com clientes reais exige uma revisão própria de hospedagem, acesso e continuidade. [Limites do GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits).
