@@ -1,3 +1,5 @@
-// Configuração PÚBLICA do ambiente de TESTES. Use o configurador do painel para gerar este arquivo.
-// Nunca colocar App Key, App Secret, Secret key ou service_role aqui.
-window.__CONECTY_CONFIG__ = { supabaseUrl: "", publishableKey: "" };
+// Configuração pública do ambiente de TESTES. Nunca colocar chaves Omie ou service_role.
+window.__CONECTY_CONFIG__ = {
+  "supabaseUrl": "https://kpxztiyrhrmxukupualo.supabase.co",
+  "publishableKey": "sb_publishable_vBTQLuWR35oSy90NtTUxMQ_PBBr8oAx"
+};
