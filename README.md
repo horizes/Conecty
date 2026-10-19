@@ -12,7 +12,7 @@ Abra **index.html** na página principal para ver a central da Conecty: listar, 
 
 Os clientes usam a página extra **cliente.html**, cada um com um link de perfil próprio gerado em Ver prévia/Copiar link. O dashboard abre em outra página e não contém a lista de clientes ou links para a administração. Criar um novo cadastro de demonstração gera seu link sem exigir outro arquivo HTML. O perfil do link não contém e-mails de acesso ou credenciais.
 
-Na aplicação com servidor, a página principal **/** abre a administração protegida; **/admin** continua como atalho. Os clientes usam **/empresa/id** e **/cliente**. Os cadastros ficam no D1. Consulte **PASSO-A-PASSO-OMIE.md** para preparar o servidor e conectar uma conta real.
+Na aplicação com servidor, a página principal **/** abre a administração protegida; **/admin** continua como atalho. Os clientes usam **/empresa/id** e **/cliente**. Os cadastros ficam no D1. Novo cliente e Editar cadastro incluem Conexão Omie: App Key e App Secret são gravados criptografados no servidor; na demonstração ficam desativados. Após a implantação inicial, a equipe cadastra as chaves pelo site, sem alterar arquivos por cliente. Consulte **PASSO-A-PASSO-OMIE.md** para preparar o servidor e conectar uma conta real.
 
 Abra index.html ou publique no GitHub Pages seguindo COMO-PUBLICAR.md. Aplicação, fonte e logotipo estão incorporados no HTML. Os ícones e a imagem de compartilhamento também acompanham o pacote.
 
