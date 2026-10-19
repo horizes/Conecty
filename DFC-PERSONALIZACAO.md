@@ -11,7 +11,7 @@ No menu do painel, abra **Planilha DFC**. A seção apresenta os meses, total do
 
 Novas categorias dos lançamentos entram automaticamente na planilha. Quando ainda não há classificação, os valores permanecem nos totais e aparece um aviso para revisão. Não é preciso modificar o código para cada nova despesa. Renomear no painel não altera o cadastro nem os valores no Omie.
 
-O padrão de grupos e classificações também pode ser configurado pela Conecty no servidor, no cadastro individual deste cliente. Esse padrão acompanha os acessos autorizados; ajustes feitos pela interface ficam somente no navegador. **Restaurar padrão** recarrega o padrão no formulário, e **Salvar minha DFC** aplica a alteração.
+No ambiente de testes GitHub Pages + Supabase, os ajustes de grupos e classificações feitos pela interface ficam somente neste navegador, separados pelo identificador da empresa. Não são compartilhados automaticamente entre acessos. **Restaurar padrão** recarrega o padrão inicial no formulário, e **Salvar minha DFC** aplica a alteração. Este pacote não inclui um editor administrativo de mapeamentos DFC compartilhados.
 
 ## Ler a planilha
 
@@ -22,4 +22,4 @@ O padrão de grupos e classificações também pode ser configurado pela Conecty
 - Se houver pagamentos sem classificação, a separação de impostos aguarda revisão. O resultado de caixa continua incluindo todos os movimentos realizados.
 - **Baixar planilha CSV** exporta o resumo e todas as categorias atuais, inclusive grupos recolhidos. A busca não limita o arquivo exportado.
 
-A prévia para GitHub Pages usa valores ilustrativos. Nenhum valor financeiro do arquivo enviado foi incorporado. A conexão real com o Omie depende da configuração do servidor. O conector atual consulta os últimos seis meses completos e o mês atual; histórico anual completo exige ampliar essa consulta. O resultado apresentado é de caixa, sem representar saldo bancário ou lucro contábil.
+Em **cliente-demo.html**, os valores são ilustrativos. No dashboard conectado **cliente.html?empresa=identificador**, os dados vêm do aplicativo Omie autorizado, depois de instalar o Supabase conforme **PASSO-A-PASSO-SUPABASE.md**. Nenhum valor financeiro do arquivo de referência foi incorporado. O conector consulta os últimos seis meses completos e o mês atual; histórico anual completo exige ampliar essa consulta. O resultado apresentado é de caixa, sem representar saldo bancário ou lucro contábil.
