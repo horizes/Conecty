@@ -1,6 +1,6 @@
 # Conectar a primeira conta real do Omie
 
-O painel administrativo está em **admin.html** na demonstração e em **/admin** na aplicação com servidor. Ele concentra lista, busca, criação e edição de clientes, ativação/pausa e abertura do dashboard individual.
+A página principal **index.html** abre a administração da Conecty. **admin.html** permanece como atalho. Os clientes usam a página extra **cliente.html**, por links individuais gerados na administração. Na aplicação com servidor, a administração fica em **/** e **/admin**, e os clientes usam **/empresa/id**. Ele concentra lista, busca, criação e edição de clientes, ativação/pausa e abertura do dashboard individual.
 
 ## 1. Preparar a aplicação com servidor
 

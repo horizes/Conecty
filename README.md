@@ -8,9 +8,11 @@ A demonstração funciona como página estática e não consulta o Omie. Nenhum 
 
 ## Administração dos clientes
 
-Abra **admin.html** para ver a central da Conecty: listar, buscar e filtrar clientes, criar/editar cadastros, ativar/pausar e abrir a prévia individual. Os registros iniciais são ilustrativos. Os cadastros da demonstração ficam apenas neste navegador; essa página estática não tem autenticação nem acesso a dados reais. O cliente continua usando index.html.
+Abra **index.html** na página principal para ver a central da Conecty: listar, buscar e filtrar clientes, criar/editar cadastros, ativar/pausar e abrir a prévia individual. **admin.html** permanece como atalho para essa mesma central. Os registros iniciais são ilustrativos. Os cadastros da demonstração ficam apenas neste navegador; essa página estática não tem autenticação nem acesso a dados reais.
 
-Na aplicação com servidor, a área fica em **/admin**, tem autenticação administrativa e grava os cadastros no D1. O portal do cliente não contém a listagem. Consulte **PASSO-A-PASSO-OMIE.md** para preparar o servidor e conectar uma conta real.
+Os clientes usam a página extra **cliente.html**, cada um com um link de perfil próprio gerado em Ver prévia/Copiar link. O dashboard abre em outra página e não contém a lista de clientes ou links para a administração. Criar um novo cadastro de demonstração gera seu link sem exigir outro arquivo HTML. O perfil do link não contém e-mails de acesso ou credenciais.
+
+Na aplicação com servidor, a página principal **/** abre a administração protegida; **/admin** continua como atalho. Os clientes usam **/empresa/id** e **/cliente**. Os cadastros ficam no D1. Consulte **PASSO-A-PASSO-OMIE.md** para preparar o servidor e conectar uma conta real.
 
 Abra index.html ou publique no GitHub Pages seguindo COMO-PUBLICAR.md. Aplicação, fonte e logotipo estão incorporados no HTML. Os ícones e a imagem de compartilhamento também acompanham o pacote.
 

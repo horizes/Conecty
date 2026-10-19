@@ -7,7 +7,7 @@
 5. Selecione o branch `main` e a pasta `/ (root)`, depois clique em **Save**.
 6. Aguarde a publicação. O link aparece na própria seção Pages.
 
-O `index.html` funciona sozinho para explorar o dashboard: aplicação, fonte, logotipo e licença estão incorporados. Não há instalação, build, npm ou configuração de variáveis para esta prévia.
+O `index.html` abre a administração da Conecty. O dashboard individual fica na página extra `cliente.html`. Ambos incorporam aplicação, fonte, logotipo e licença. Não há instalação, build, npm ou configuração de variáveis para esta prévia.
 
 ## Atualizar o endereço já publicado
 
@@ -17,10 +17,14 @@ O favicon usa o símbolo da logo original da Conecty. A imagem de compartilhamen
 
 A imagem precisa estar publicada em `https://horizes.github.io/Conecty/conecty-compartilhar-v1.png`. Arquivos locais `file://` não geram prévias públicas. A atualização da visualização em conversas depende também do cache da rede social; se necessário, teste um novo envio com `https://horizes.github.io/Conecty/?v=logo1` depois da publicação.
 
-O painel é exclusivo da sua empresa e usa valores ilustrativos. Não se conecta ao Omie. A integração com dados reais requer o servidor da aplicação, fora do GitHub Pages.
+Cada dashboard de cliente mostra somente o próprio perfil, com valores ilustrativos. Não se conecta ao Omie. A integração com dados reais requer o servidor da aplicação, fora do GitHub Pages.
 
 ## Central da Conecty
 
-O pacote também inclui **admin.html**, uma demonstração separada da administração de clientes. Depois do upload, ela estará em `https://horizes.github.io/Conecty/admin.html`. Permite criar e editar cadastros ilustrativos neste navegador, ativar/pausar e abrir a prévia do cliente. Ela não é uma área administrativa autenticada nem acessa dados reais no GitHub Pages. Para produção, use `/admin` da aplicação com servidor, conforme **PASSO-A-PASSO-OMIE.md**.
+A página principal `https://horizes.github.io/Conecty/` abre a administração. O arquivo **admin.html** continua como atalho para a mesma central. Permite criar e editar cadastros ilustrativos neste navegador e ativar/pausar seu estado.
+
+Os botões **Ver prévia** e **Copiar link** apontam para `cliente.html#perfil=...`, com um perfil individual por cliente. O painel abre separado da administração. Novos cadastros de demonstração usam a mesma página extra com seu próprio link. O perfil não contém e-mails de acesso nem credenciais; seus valores são ilustrativos.
+
+No GitHub Pages, esta central é uma demonstração pública e não autentica administradores. Para produção, a raiz `/` e o atalho `/admin` da aplicação com servidor têm autenticação e banco; os clientes acessam `/empresa/id`, conforme **PASSO-A-PASSO-OMIE.md**.
 
 Documento oficial: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
