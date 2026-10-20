@@ -4,6 +4,8 @@ O site permanece em **https://horizes.github.io/Conecty/**. O Supabase fornece s
 
 Você fará a configuração inicial uma vez. Depois, cadastra empresas, informa App Key/App Secret e abre os dashboards pelo próprio site. Não é necessário criar um arquivo por empresa.
 
+**Se o projeto já está instalado:** siga **ATUALIZAR-ACESSOS.md** para substituir a função existente e criar/vincular os usuários pelo admin. A nova versão separa o perfil administrativo do perfil de cliente, com vínculo exclusivo a uma empresa.
+
 ## Arquivos desta entrega
 
 | Arquivo | Destino |
@@ -49,6 +51,8 @@ Marque **Auto Confirm User**, ou a opção equivalente de confirmar o e-mail ao 
 Em **Authentication → Sign In / Providers**, mantenha o provedor **Email** habilitado. Desative o cadastro público de novos usuários (Allow new users to sign up), pois as contas do piloto serão criadas manualmente por você.
 
 Você pode usar outros e-mails de teste. Nesse caso, use os mesmos valores na configuração do administrador e na lista de acesso da empresa. A função exige e-mail confirmado no Supabase e não confia em e-mails enviados pelo navegador.
+
+A conta administrativa precisa constar em `CONECTY_ADMIN_EMAILS`. A conta de cliente também precisa ser vinculada pelo admin em **três pontos → Usuário de acesso → Vincular conta existente**, depois de criar o cadastro da empresa. Informar apenas o e-mail na lista não concede o perfil de cliente. Você pode criar somente o administrador nesta etapa e usar **Criar novo usuário** no painel para os demais acessos.
 
 ## 4. Configurar três segredos do servidor
 
@@ -125,6 +129,10 @@ Você pode clicar em **Continuar para o login** antes do upload para testar some
 6. Selecione **Ativo** e clique em **Criar cliente**.
 7. Clique em **Abrir painel** para consultar o Omie. Compare os valores com o sistema no mesmo período e conta.
 
+Para disponibilizar o login ao cliente, na linha da empresa abra **três pontos → Usuário de acesso**. Escolha **Criar novo usuário**, informe e-mail exclusivo e senha inicial de pelo menos oito caracteres e salve. Se a conta foi criada manualmente na etapa 3, use **Vincular conta existente**, que preserva sua senha. O servidor grava o perfil de cliente em metadados protegidos e o associa a uma única empresa. Contas administrativas ou já vinculadas a outra empresa são recusadas.
+
+O botão **Abrir painel** na administração usa uma conferência administrativa. A conta administrativa é recusada no login comum do cliente, e contas de cliente são recusadas no login administrativo.
+
 Você pode salvar sem chaves e conectar depois por **Editar cadastro → Conexão Omie**. Ao editar, ambos os campos vazios preservam a conexão atual. Para substituí-la, preencha os dois campos. Cadastro e chaves são gravados juntos; uma versão antiga do cadastro não sobrescreve uma edição mais recente.
 
 **Omie configurado** indica que o par foi armazenado, não que já foi validado pelo Omie. A consulta acontece ao abrir o dashboard. Se a consulta falhar, o painel mostra erro, sem substituir os dados por valores ilustrativos.
@@ -144,7 +152,7 @@ Para direcionar explicitamente à empresa, use o link individual abaixo. Também
 5. Tente abrir a administração ou alterar `empresa=` para um cadastro não autorizado: a API deve recusar o acesso.
 6. No admin, pause o cadastro e confirme que novas consultas ficam bloqueadas. Uma página aberta pode manter os dados que já carregou.
 
-O formulário de login usa a conta que você criou em **Supabase → Authentication → Users**, com e-mail confirmado. Informar um e-mail em **E-mails autorizados a acessar** no cadastro da empresa autoriza o acesso, mas não cria o usuário nem sua senha. Os dois cadastros são necessários. A página do cliente não oferece cadastro público ou edição das configurações do servidor. Se a configuração pública ainda estiver ausente, ela informa que o acesso está sendo preparado pela Conecty.
+O formulário usa a conta criada ou vinculada em **admin → três pontos → Usuário de acesso**. As contas criadas por esse formulário aparecem em **Supabase → Authentication → Users**, com e-mail confirmado. Informar um e-mail na lista de acesso não substitui o vínculo exclusivo. O link geral fica no botão **Link de acesso do cliente**, dentro da administração, sem atalho no login normal. A página do cliente não oferece cadastro público ou edição das configurações do servidor. Se a configuração pública ainda estiver ausente, ela informa que o acesso está sendo preparado pela Conecty.
 
 Também confira no Supabase que a tabela não pode ser lida com a chave pública ou uma sessão comum pela Data API. O script da etapa 2 retira esses privilégios; nunca libere leitura pública da coluna de credenciais.
 
@@ -153,6 +161,7 @@ Também confira no Supabase que a tabela não pode ser lida com a chave pública
 - O site, as telas e os gráficos permanecem no GitHub Pages.
 - A senha de teste é enviada diretamente ao Supabase Auth. A sessão fica em `sessionStorage`, nesta aba; a senha não é persistida pela aplicação.
 - A função verifica a sessão, o administrador e os e-mails autorizados antes de abrir as credenciais.
+- Cada usuário de cliente é vinculado a uma única empresa por `app_metadata`, que somente o servidor administra. Metadados editáveis pelo usuário são ignorados. A permissão é conferida antes de abrir as telas e novamente em cada API; um e-mail repetido em outra lista não amplia o acesso do cliente.
 - As chaves Omie digitadas no formulário são enviadas por HTTPS ao servidor e criptografadas no banco. Não são retornadas ao navegador, copiadas em links ou gravadas em localStorage.
 - A função usa o par Omie somente em consultas de leitura à API oficial. Alterações e baixas continuam no Omie.
 - A integração lê os últimos seis meses completos e o mês atual; títulos em aberto incluem vencimentos até 60 dias à frente. Cache de até cinco minutos no servidor; consultas ao abrir, pelo botão e enquanto o painel fica aberto. Não há sincronização em segundo plano quando fechado.
