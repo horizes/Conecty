@@ -12,7 +12,7 @@ Você fará a configuração inicial uma vez. Depois, cadastra empresas, informa
 | **Conecty-Supabase-Backend.zip** | Extraia para instalar o banco e a função no Supabase. Não precisa enviá-lo ao GitHub. |
 | **Conecty-Codigo-Fonte.zip** | Projeto editável completo, para futuras alterações. |
 
-O pacote do site contém `index.html` (admin), `admin.html` (atalho), `cliente.html` (dashboard individual), `cliente-demo.html` (visual ilustrativo), `conecty-config.js`, ícones, imagem social e este guia. O pacote do servidor contém `INSTALAR-BANCO.sql`, `index.ts` (função já compilada), `GERAR-CHAVE.html` e `config.toml` (opcional para quem usa CLI).
+O pacote do site contém `index.html` (admin), `admin.html` (atalho), `login-cliente.html` (entrada do cliente), `cliente.html` (dashboard individual), `cliente-demo.html` (visual ilustrativo), `conecty-config.js`, ícones, imagem social e este guia. O pacote do servidor contém `INSTALAR-BANCO.sql`, `index.ts` (função já compilada), `GERAR-CHAVE.html` e `config.toml` (opcional para quem usa CLI).
 
 ## 1. Criar o projeto gratuito no Supabase
 
@@ -133,12 +133,18 @@ No Omie, as chaves são obtidas por um administrador em **Meus Aplicativos → e
 
 ## 9. Testar o acesso individual
 
+O login exclusivo do cliente fica em **https://horizes.github.io/Conecty/login-cliente.html**. Ele informa e-mail e senha e segue para o dashboard autorizado. O login da administração continua na raiz do site. Você pode enviar o login geral ao cliente sem precisar informar o identificador da empresa; o servidor escolhe o cadastro ativo autorizado para o e-mail da sessão. O portal mostra somente uma empresa por acesso.
+
+Para direcionar explicitamente à empresa, use o link individual abaixo. Também é aceito `login-cliente.html?empresa=empresa-teste`; após o login, esse identificador é preservado e a autorização é conferida no servidor. O campo da URL nunca concede acesso sozinho.
+
 1. Na administração, use **Copiar link do cliente**. O endereço terá o formato `https://horizes.github.io/Conecty/cliente.html?empresa=empresa-teste`.
 2. Abra o link em outro navegador ou janela privada.
 3. Entre como **cliente@conecty.test**.
 4. Confira que aparecem somente o perfil e os dados dessa empresa.
 5. Tente abrir a administração ou alterar `empresa=` para um cadastro não autorizado: a API deve recusar o acesso.
 6. No admin, pause o cadastro e confirme que novas consultas ficam bloqueadas. Uma página aberta pode manter os dados que já carregou.
+
+O formulário de login usa a conta que você criou em **Supabase → Authentication → Users**, com e-mail confirmado. Informar um e-mail em **E-mails autorizados a acessar** no cadastro da empresa autoriza o acesso, mas não cria o usuário nem sua senha. Os dois cadastros são necessários. A página do cliente não oferece cadastro público ou edição das configurações do servidor. Se a configuração pública ainda estiver ausente, ela informa que o acesso está sendo preparado pela Conecty.
 
 Também confira no Supabase que a tabela não pode ser lida com a chave pública ou uma sessão comum pela Data API. O script da etapa 2 retira esses privilégios; nunca libere leitura pública da coluna de credenciais.
 
