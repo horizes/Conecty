@@ -1,25 +1,36 @@
-# Sua DFC personalizada
+# DFC automática para o cliente
 
-No menu do painel, abra **Planilha DFC**. A seção apresenta os meses, total do período, média mensal e detalhamento dos pagamentos e recebimentos. Clique nos valores para conferir os lançamentos.
+O cliente abre a DFC já organizada. A tela do cliente oferece consulta, filtros e exportação; a classificação fica com a Conecty.
 
-## Adaptar ao seu negócio
+## Organização automática
 
-1. Clique em **Personalizar DFC**.
-2. Crie os grupos de que precisa, altere seus nomes ou remova os que não usa. Você pode mudar a ordem e indicar se um grupo representa receita, pagamento, imposto ou retirada.
-3. Em **Suas categorias**, escolha o nome de exibição e o grupo de cada categoria. A lista corresponde aos lançamentos do ano e conta selecionados.
-4. Clique em **Salvar minha DFC**. As preferências são salvas neste navegador.
+1. A integração consulta as categorias do aplicativo Omie da própria empresa, incluindo código, grupo superior e descrição padrão quando disponíveis.
+2. Grupos reconhecidos no Omie orientam a organização. Categorias conhecidas também são reconhecidas por nomes exatos e variações cadastradas, respeitando entrada ou saída.
+3. Um grupo próprio sem correspondência é mantido com seu nome original. Sem grupo suficiente na origem, o movimento aparece em **Outras entradas** ou **Outras saídas**.
+4. Categorias novas entram automaticamente, sem cadastro pelo cliente. Categorias homônimas com códigos diferentes ficam separadas; o código mantém a regra mesmo se o nome mudar no Omie.
+5. Uma correção explícita da Conecty prevalece sobre a regra automática para aquela empresa.
 
-Novas categorias dos lançamentos entram automaticamente na planilha. Quando ainda não há classificação, os valores permanecem nos totais e aparece um aviso para revisão. Não é preciso modificar o código para cada nova despesa. Renomear no painel não altera o cadastro nem os valores no Omie.
+Esta organização é gerencial e não altera lançamentos nem categorias no Omie. Não utiliza um serviço externo de IA ou promete interpretar corretamente descrições ambíguas. A separação de impostos permanece em revisão quando faltam informações confiáveis; os movimentos continuam integralmente no resultado de caixa.
 
-No ambiente de testes GitHub Pages + Supabase, os ajustes de grupos e classificações feitos pela interface ficam somente neste navegador, separados pelo identificador da empresa. Não são compartilhados automaticamente entre acessos. **Restaurar padrão** recarrega o padrão inicial no formulário, e **Salvar minha DFC** aplica a alteração. Este pacote não inclui um editor administrativo de mapeamentos DFC compartilhados.
+Referências oficiais: [categorias e grupos superiores](https://ajuda.omie.com.br/pt-BR/articles/9278001-cadastrando-e-alterando-categorias-via-api), [campos do retorno de ListarCategorias](https://ajuda.omie.com.br/pt-BR/articles/7854327-exemplos-de-query-no-power-bi-com-paginacao).
 
-## Ler a planilha
+## Revisar pela Conecty
 
-- Filtros de ano, intervalo e conta organizam a consulta. Período e Média consideram somente o intervalo escolhido; os demais meses ficam atenuados.
-- Grupos podem ser expandidos ou recolhidos. A busca encontra categorias do próprio negócio.
-- Saídas aparecem entre parênteses. Traço significa zero. **n.d.** indica histórico indisponível ou classificação pendente.
-- A média usa apenas os meses disponíveis, incluindo meses parciais identificados. Não transforma meses sem histórico em zero.
-- Se houver pagamentos sem classificação, a separação de impostos aguarda revisão. O resultado de caixa continua incluindo todos os movimentos realizados.
-- **Baixar planilha CSV** exporta o resumo e todas as categorias atuais, inclusive grupos recolhidos. A busca não limita o arquivo exportado.
+1. Entre na administração e, na empresa ativa com Omie configurado, abra **três pontos → Revisar DFC**.
+2. A DFC abre na conferência administrativa. Clique em **Revisar classificação**.
+3. Confira categorias marcadas **Revisão Conecty**. Escolha o grupo adequado, ajuste o tratamento do grupo (pagamento, imposto ou retirada) e, quando o grupo sugerido já estiver correto, use **Confirmar este grupo**.
+4. Clique em **Salvar para o cliente**. A configuração é gravada no cadastro da empresa no Supabase e vale para seus usuários em qualquer navegador. O cliente recebe o ajuste na próxima consulta ou pelo botão de atualizar.
+5. Se aparecer conflito de versão, reabra a revisão para carregar o cadastro mais recente.
 
-Em **cliente-demo.html**, os valores são ilustrativos. No dashboard conectado **cliente.html?empresa=identificador**, os dados vêm do aplicativo Omie autorizado, depois de instalar o Supabase conforme **PASSO-A-PASSO-SUPABASE.md**. Nenhum valor financeiro do arquivo de referência foi incorporado. O conector consulta os últimos seis meses completos e o mês atual; histórico anual completo exige ampliar essa consulta. O resultado apresentado é de caixa, sem representar saldo bancário ou lucro contábil.
+O cliente não recebe botões para classificar. Quando necessário, vê apenas que o detalhamento de impostos está em revisão pela Conecty. A revisão administrativa é verificada no servidor: mudar o endereço para a visão administrativa não concede permissão.
+
+Os ajustes antigos que existiam somente no armazenamento do navegador deixam de controlar a DFC. Use a revisão administrativa para cadastrar uma regra compartilhada.
+
+## Atualizar o ambiente
+
+1. No Supabase, abra **Edge Functions → conecty-api → Code / Edit code**.
+2. Substitua todo o **index.ts** pelo arquivo deste pacote e clique em **Deploy updates**. Preserve os Secrets existentes. A atualização inclui a correção de HTTPS.
+3. Publique os HTMLs atualizados do pacote GitHub Pages, preservando o `conecty-config.js` configurado com seu projeto. Os cadastros usam a tabela já existente, sem migração SQL.
+4. Atualize o site e confira a DFC pela administração e pelo login do cliente. O cache Omie pode durar até cinco minutos.
+
+Os testes automatizados cobrem regras, grupos Omie, rateios, códigos homônimos, renomeações, valores desconhecidos, conciliação, persistência por empresa, conflito de versão e bloqueio de alterações por clientes. As APIs são simuladas nos testes; a publicação e a conferência dos dados reais devem ser feitas no ambiente hospedado.

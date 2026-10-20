@@ -165,7 +165,7 @@ Também confira no Supabase que a tabela não pode ser lida com a chave pública
 - As chaves Omie digitadas no formulário são enviadas por HTTPS ao servidor e criptografadas no banco. Não são retornadas ao navegador, copiadas em links ou gravadas em localStorage.
 - A função usa o par Omie somente em consultas de leitura à API oficial. Alterações e baixas continuam no Omie.
 - A integração lê os últimos seis meses completos e o mês atual; títulos em aberto incluem vencimentos até 60 dias à frente. Cache de até cinco minutos no servidor; consultas ao abrir, pelo botão e enquanto o painel fica aberto. Não há sincronização em segundo plano quando fechado.
-- A DFC usa categorias da própria empresa e permite organização visual local por grupo. Períodos sem cobertura mostram **n.d.**. Resultado de caixa não equivale a lucro contábil ou saldo bancário.
+- A DFC organiza automaticamente as categorias usando os grupos e descrições padrão do Omie e regras de nomes exatos. O cliente apenas consulta. A Conecty revisa exceções em **três pontos → Revisar DFC**, com regras compartilhadas por empresa no Supabase. Veja **DFC-AUTOMATICA.md**. Períodos sem cobertura ou detalhamento tributário em revisão mostram **n.d.**; o resultado de caixa inclui todos os movimentos e não equivale a lucro contábil ou saldo bancário.
 
 ## Se não funcionar
 
@@ -180,6 +180,7 @@ Também confira no Supabase que a tabela não pode ser lida com a chave pública
 | Erro ao consultar o servidor / CORS | Função **conecty-api** publicada, URL correta e `CONECTY_SITE_URL` configurado com o endereço do GitHub Pages. |
 | Confira instalação do banco | Rode o SQL no mesmo projeto e mantenha a Data API habilitada. |
 | Campos Omie desativados | Confira `CONECTY_CREDENTIALS_KEY` no Supabase: 32 bytes em base64 gerados pelo helper. |
+| “Use uma conexão HTTPS” mesmo no site HTTPS | Atualize **Edge Functions → conecty-api → Code → index.ts** com a função deste pacote e clique em **Deploy updates**. A função reconhece o HTTPS externo informado pelo gateway Supabase, mesmo quando o endereço interno é HTTP. Preserve os Secrets e cadastre as chaves novamente após a publicação. |
 | Não foi possível atualizar dados financeiros | Revise aplicativo, chaves, permissões e limites do Omie. Confira também Logs da função sem inserir ou publicar credenciais. |
 | Nenhuma empresa disponível | Cadastro Ativo, conexão gravada e e-mail autorizado; para testar o cliente, use a conta definida no cadastro. |
 
