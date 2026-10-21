@@ -1,3 +1,5 @@
+> **Atualização R7:** para logo do cliente, horário configurável e gestão de usuários, siga [LOGO-E-HORARIO.md](LOGO-E-HORARIO.md). Use o novo SQL no lugar do agendamento fixo das 13h.
+
 # Atualização diária, recorte por cliente e apps separados — R6
 
 O site permanece no GitHub Pages. A coleta do Omie passa a ocorrer uma vez por dia, a partir das **13h no horário de Brasília**, mesmo com o site fechado. A primeira sincronização e a coleta de empresas novas aguardam o próximo horário programado. Abrir o painel, recarregar a página ou clicar no indicador de atualização lê o resultado salvo, sem nova coleta do Omie.

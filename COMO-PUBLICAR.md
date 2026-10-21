@@ -1,3 +1,5 @@
+> **Atualização R7:** para logo do cliente, horário configurável e gestão de usuários, siga [LOGO-E-HORARIO.md](LOGO-E-HORARIO.md). Use o novo SQL no lugar do agendamento fixo das 13h.
+
 > **Versão atual R6:** para atualizar o projeto existente com sincronização às 13h, filtros administrativos e apps separados, siga **ATUALIZACAO-DIARIA-E-APPS.md**. As etapas abaixo descrevem a preparação inicial; a ativação da R6 exige também o guia novo.
 
 # Conecty: GitHub Pages + Supabase para testes
