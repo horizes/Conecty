@@ -1,3 +1,5 @@
+> **Versão atual R6:** para atualizar o projeto existente com sincronização às 13h, filtros administrativos e apps separados, siga **ATUALIZACAO-DIARIA-E-APPS.md**. As etapas abaixo descrevem a preparação inicial; a ativação da R6 exige também o guia novo.
+
 # Conecty: GitHub Pages + Supabase para testes
 
 O site permanece em **https://horizes.github.io/Conecty/**. O Supabase fornece somente login, banco e a função que consulta o Omie. Este ambiente é destinado a testes com contas e dados de teste.
@@ -164,7 +166,7 @@ Também confira no Supabase que a tabela não pode ser lida com a chave pública
 - Cada usuário de cliente é vinculado a uma única empresa por `app_metadata`, que somente o servidor administra. Metadados editáveis pelo usuário são ignorados. A permissão é conferida antes de abrir as telas e novamente em cada API; um e-mail repetido em outra lista não amplia o acesso do cliente.
 - As chaves Omie digitadas no formulário são enviadas por HTTPS ao servidor e criptografadas no banco. Não são retornadas ao navegador, copiadas em links ou gravadas em localStorage.
 - A função usa o par Omie somente em consultas de leitura à API oficial. Alterações e baixas continuam no Omie.
-- A integração lê os últimos seis meses completos e o mês atual; títulos em aberto incluem vencimentos até 60 dias à frente. Cache de até cinco minutos no servidor; consultas ao abrir, pelo botão e enquanto o painel fica aberto. Não há sincronização em segundo plano quando fechado.
+- A integração lê os últimos seis meses completos e o mês atual; títulos em aberto incluem vencimentos até 60 dias à frente. Na R6, a coleta é agendada uma vez por dia às 13h (Brasília), inclusive com o portal fechado. As páginas leem o resultado privado salvo. Contas e categorias são selecionadas no administrador e filtradas no servidor. Siga **ATUALIZACAO-DIARIA-E-APPS.md** para ativar a R6.
 - A DFC organiza automaticamente as categorias usando os grupos e descrições padrão do Omie e regras de nomes exatos. O cliente apenas consulta. A Conecty revisa exceções em **três pontos → Revisar DFC**, com regras compartilhadas por empresa no Supabase. Veja **DFC-AUTOMATICA.md**. Períodos sem cobertura ou detalhamento tributário em revisão mostram **n.d.**; o resultado de caixa inclui todos os movimentos e não equivale a lucro contábil ou saldo bancário.
 
 ## Se não funcionar
