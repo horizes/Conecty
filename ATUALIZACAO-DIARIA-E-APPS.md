@@ -76,7 +76,7 @@ Abra o endereço correspondente e toque em **Instalar Conecty Admin** ou **Insta
 
 No **PC**, abra no Chrome ou Edge e clique em **Instalar Conecty Admin** ou **Instalar Conecty Cliente**. Confirme a instalação na janela do navegador. O app passa a abrir em uma janela própria, com ícone no computador. Se estiver num endereço antigo, o botão leva primeiro ao endereço próprio do app.
 
-No **Android**, abra no Chrome e use o mesmo botão. No **iPhone/iPad**, abra no Safari e use **Compartilhar → Adicionar à Tela de Início**.
+No **Android**, abra no Chrome e use o mesmo botão. No **iPhone/iPad**, abra no Safari e use **Compartilhar → Ver mais → Adicionar à Tela de Início → Adicionar**.
 
 A janela automática depende da liberação do navegador. O site guarda essa opção mesmo ao passar do login para o painel. Se ela ainda não estiver disponível, mostra instruções e um botão que é habilitado assim que o navegador permitir. No PC, também é possível instalar pelo ícone na barra de endereço ou pelo menu de aplicativos do Chrome/Edge; no Android, pelo menu **Adicionar à tela inicial → Instalar**.
 
