@@ -74,7 +74,13 @@ Em **Todas**, novas contas e categorias do Omie entram automaticamente. Em **Som
 
 Abra o endereço correspondente e toque em **Instalar Conecty Admin** ou **Instalar Conecty Cliente**, também disponíveis nas telas de login e nos painéis. Instale o administrativo nos dispositivos da equipe; envie ao cliente somente seu link de acesso pelo painel administrativo.
 
-Chrome e Edge podem oferecer uma janela de instalação. No Safari do iPhone/iPad, use **Compartilhar → Adicionar à Tela de Início**. Se o navegador não oferecer instalação automática, o botão mostra essas instruções. Os dois apps precisam de internet para consultar os dados; os service workers não armazenam dados financeiros, senhas, tokens nem respostas da API para uso offline.
+No **PC**, abra no Chrome ou Edge e clique em **Instalar Conecty Admin** ou **Instalar Conecty Cliente**. Confirme a instalação na janela do navegador. O app passa a abrir em uma janela própria, com ícone no computador. Se estiver num endereço antigo, o botão leva primeiro ao endereço próprio do app.
+
+No **Android**, abra no Chrome e use o mesmo botão. No **iPhone/iPad**, abra no Safari e use **Compartilhar → Adicionar à Tela de Início**.
+
+A janela automática depende da liberação do navegador. O site guarda essa opção mesmo ao passar do login para o painel. Se ela ainda não estiver disponível, mostra instruções e um botão que é habilitado assim que o navegador permitir. No PC, também é possível instalar pelo ícone na barra de endereço ou pelo menu de aplicativos do Chrome/Edge; no Android, pelo menu **Adicionar à tela inicial → Instalar**.
+
+Os dois apps precisam de internet para consultar os dados; os service workers não armazenam dados financeiros, senhas, tokens nem respostas da API para uso offline. A melhoria da instalação no PC é somente uma atualização do site; quem já configurou o backend não precisa alterar o Supabase por causa dela.
 
 ## Conferir sem expor dados ou chaves
 
