@@ -17,7 +17,7 @@ Não altere o agendamento financeiro nem a função conecty-sync para instalar e
 ## Uso
 
 - Cliente: na administração, abra Ações → Usuários e acessos → Gerar link de cadastro. O novo usuário ficará vinculado somente àquela empresa.
-- Equipe: abra Perfis da administração → Gerar convite administrativo. O destinatário poderá administrar todos os clientes. Envie apenas à equipe autorizada.
+- Equipe: no menu lateral, abra Configurações gerais → Perfis da administração → Gerar convite administrativo. O destinatário poderá administrar todos os clientes. Envie apenas à equipe autorizada.
 - Copie o link antes de fechar. Por segurança, o servidor conserva apenas seu hash, portanto o endereço completo não pode ser recuperado depois. É possível cancelar e gerar outro.
 - O destinatário preenche nome, e-mail e senha, digita o código recebido e entra no login correspondente.
 - O e-mail fica vinculado ao convite no primeiro envio. Se foi digitado incorretamente, cancele o convite e gere outro.
