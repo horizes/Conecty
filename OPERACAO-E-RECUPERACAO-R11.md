@@ -12,6 +12,7 @@ O ambiente atual continua sendo de testes no GitHub Pages. O Supabase guarda cad
 - Em Configurações gerais → Saúde e histórico, confira resultado, tentativa, agenda, período e falhas. A coleta extraordinária pede confirmação, utiliza a cota Omie e tem intervalo mínimo de 15 minutos.
 - No cadastro, informe o plano Omie e de 3 a 36 meses de histórico. A atualização usa um orçamento compartilhado: o consumo de outras integrações no Omie permanece fora do controle desta plataforma. Um limite preserva o último resultado e aparece no diagnóstico.
 - Preferências são vinculadas à conta e à empresa. CSV neutraliza fórmulas em textos; Excel grava textos como texto e valores como número. PDF utiliza a impressão do navegador.
+- Em Revisar DFC → Modelos da equipe, dê um nome e um segmento ao modelo e exporte o JSON. Ele contém grupos e regras já confirmadas, sem valores, datas, contas ou identificadores do cliente. Guarde os modelos em uma pasta privada da equipe por segmento. Em outra empresa, importe o modelo, revise o rascunho e só então escolha Salvar para o cliente. A importação compara o nome original e a natureza; preserva decisões existentes, não usa códigos Omie de outra empresa e ignora correspondências ambíguas. Não é uma biblioteca central compartilhada no servidor.
 
 ## Backup protegido e ensaio de restauração
 
@@ -27,7 +28,7 @@ Não foi certificado um ensaio completo de recuperação de desastre nesta entre
 
 ## Publicação e rollback
 
-O build executa TypeScript, testes e verificação dos bundles antes de empacotar. No repositório público, o workflow confere hashes, CSP, referências de assets e ausência de arquivos privados/chaves de servidor antes de publicar apenas a lista pública. A suíte completa do backend permanece no projeto-fonte privado; não é executada pelo repositório público de distribuição.
+Antes desta publicação, foram executados TypeScript, suíte completa e verificação dos bundles. O build do pacote confere os bundles; isso não substitui um pipeline privado contínuo. No repositório público, o workflow confere hashes, CSP, referências de assets e ausência de arquivos privados/chaves de servidor antes de publicar apenas a lista pública. A suíte completa do backend permanece no projeto-fonte privado; não é executada pelo repositório público de distribuição.
 
 Para retornar o frontend, republique o conjunto completo de uma versão validada, incluindo assets e manifesto. Não misture HTML de uma versão com scripts de outra. Guarde também os bundles de backend correspondentes. A migração R11 é aditiva; um rollback do frontend não deve apagar tabelas de auditoria nem dados.
 
