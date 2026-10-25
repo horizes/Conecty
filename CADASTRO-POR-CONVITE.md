@@ -1,3 +1,5 @@
+> Guia histórico. As configurações de segurança e o uso atual estão em [Operação R11](OPERACAO-E-RECUPERACAO-R11.md). Não reative cadastro público.
+
 # Cadastro por convite — cliente e administração
 
 Os novos cadastros usam páginas separadas: cadastro-cliente.html e cadastro-admin.html. Os links válidos são gerados somente dentro da administração Conecty. Cada link tem uso único, vale sete dias e define o perfil no servidor.

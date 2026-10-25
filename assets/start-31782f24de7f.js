@@ -1,0 +1,1 @@
+if(window.top!==window.self){document.getElementById("root").textContent="Abra a Conecty diretamente no navegador para continuar.";throw new Error("Framing blocked")}window.__CONECTY_AUDIENCE__="client";import("../assets/login-3IRPKGDA.js");

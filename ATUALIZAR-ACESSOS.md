@@ -1,3 +1,5 @@
+> Guia histórico. As configurações de segurança e o uso atual estão em [Operação R11](OPERACAO-E-RECUPERACAO-R11.md). Não reative cadastro público.
+
 # Atualizar os acessos Conecty
 
 Esta atualização mantém o site no GitHub Pages e usa seu projeto Supabase existente.
