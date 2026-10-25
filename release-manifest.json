@@ -22,7 +22,7 @@
     {
       "path": "admin/index.html",
       "bytes": 15169,
-      "sha256": "c8e9e7093149f373e5698a13f5e8493025b30e5f1643bd828a66c14128d7b2cd"
+      "sha256": "f670ad40c4f0c433a7959f57a713faff0c8318c093873b3628ae66ee964ad983"
     },
     {
       "path": "admin/manifest.webmanifest",
@@ -32,7 +32,7 @@
     {
       "path": "admin/painel.html",
       "bytes": 15170,
-      "sha256": "64c893156b2d7df86eb1c4b89e3dbc04f28806ee69f4c5098f7ae3f902a261ee"
+      "sha256": "9ef70170fb5a46331b208f711f27c50b044f5b9f19b4a003ccb92eff12f64a6f"
     },
     {
       "path": "admin/sw.js",
@@ -42,7 +42,7 @@
     {
       "path": "admin.html",
       "bytes": 15176,
-      "sha256": "84daabec6e3aadb2c396587dea3f306cde045d523a13b68048dff6d9f6543f4d"
+      "sha256": "e75a5e661bd719f6c5bc0e3249fd01ca82570ead0e4659311eff188f2882e289"
     },
     {
       "path": "apple-touch-icon.png",
@@ -180,9 +180,9 @@
       "sha256": "e6f36a3a87c125785c565c793fcbadddcf67dacbce9a93a179c0c11f08ca9722"
     },
     {
-      "path": "assets/style-36000f2c7cf1.css",
-      "bytes": 122675,
-      "sha256": "36000f2c7cf159843aac4528124612fce8fe5ab50d5ecbc2537c5251b72ec0c0"
+      "path": "assets/style-3de3703ff89e.css",
+      "bytes": 122915,
+      "sha256": "3de3703ff89e2ca3fefc249209f93c418685742b883e1e3c0b06f18a3eeb0cd9"
     },
     {
       "path": "ATUALIZACAO-DIARIA-E-APPS.md",
@@ -202,12 +202,12 @@
     {
       "path": "cadastro-admin.html",
       "bytes": 15053,
-      "sha256": "92ad33b24bf94c07655cabf2545f684a1fc9d18685fe5e3a26fb70ee13388dcd"
+      "sha256": "5acf049fc2c2eb72b0dae58a448d22f7439ea6756b42fd2ed2626aacc4f17fb5"
     },
     {
       "path": "cadastro-cliente.html",
       "bytes": 15045,
-      "sha256": "63046b87d6f7253c0cbc19eabcf14daa83861682428e326bf1c29a6230c10e96"
+      "sha256": "8440b898d73ac8a2aff46ab6e72278331053bf0dd1042b0c48a525c826205c97"
     },
     {
       "path": "CADASTRO-POR-CONVITE.md",
@@ -227,7 +227,7 @@
     {
       "path": "cliente/index.html",
       "bytes": 15194,
-      "sha256": "9c81d677c6e44da0714bb3213f8a108a00480173f59d324e4f951598fe26a18e"
+      "sha256": "d8c555ba77c9bd11a352cebd72171715ff8a93cb2687154fcdb5663a19608afe"
     },
     {
       "path": "cliente/manifest.webmanifest",
@@ -237,7 +237,7 @@
     {
       "path": "cliente/painel.html",
       "bytes": 15166,
-      "sha256": "264aa899769d56c5dee09508ae75929c459d6a6e634aad9d787ba1695dfe3be0"
+      "sha256": "2325fcd987bda5c62f7dabe83ea3f95ea3d57bdf6ef2a2748f67b26573d87237"
     },
     {
       "path": "cliente/sw.js",
@@ -247,12 +247,12 @@
     {
       "path": "cliente-demo.html",
       "bytes": 14916,
-      "sha256": "8cd634bd71ac7a204b297f9512f0a5ef7b1f84e632474c31de8c9cf588f8c57f"
+      "sha256": "fa7afea0e91e90e393e307f273eb5beb85a1f56f3eba832d4619e8cee8c000ec"
     },
     {
       "path": "cliente.html",
       "bytes": 15173,
-      "sha256": "0888aaeb4b64b5ac7d1fe4e30299c40ee534f475516db7475886eabd0225f8db"
+      "sha256": "6d0a147361426805d4b0797c2d9276e0bb85693d2004b42d882e4d5f8646d58e"
     },
     {
       "path": "COMO-PUBLICAR.md",
@@ -302,12 +302,12 @@
     {
       "path": "index.html",
       "bytes": 15176,
-      "sha256": "84daabec6e3aadb2c396587dea3f306cde045d523a13b68048dff6d9f6543f4d"
+      "sha256": "e75a5e661bd719f6c5bc0e3249fd01ca82570ead0e4659311eff188f2882e289"
     },
     {
       "path": "login-cliente.html",
       "bytes": 15201,
-      "sha256": "3cdf08587a95614336557742289d841c433784b9202ba94edd90b873234d7fce"
+      "sha256": "853ddc6ee7066617976627f50dad10cada16eac704e5d35e684a71d88f0ab9ab"
     },
     {
       "path": "LOGO-E-HORARIO.md",
