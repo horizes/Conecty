@@ -22,7 +22,7 @@
     {
       "path": "admin/index.html",
       "bytes": 15169,
-      "sha256": "f1e42f59d1820f267ae11659fb17144c884216a9114bb65bca05f947abf55b31"
+      "sha256": "2c90702a09e7718239281acf0f35cb26833ea7fb425420ea6354ae99dba2a6dc"
     },
     {
       "path": "admin/manifest.webmanifest",
@@ -42,7 +42,7 @@
     {
       "path": "admin.html",
       "bytes": 15176,
-      "sha256": "26dee7116feebdf51049af5caee7ded7136b3b2b30c3ff7f94525f03630ac3a9"
+      "sha256": "a952300157baaa652ecab04f2519fbb14964dae3eca9693e84fe3fe9e2aee167"
     },
     {
       "path": "apple-touch-icon.png",
@@ -50,9 +50,9 @@
       "sha256": "65206a67e828ed7fd133afe0c22db96615979db88ba5fcc711618d72a5ab253c"
     },
     {
-      "path": "assets/admin-LLMOMBYS.js",
-      "bytes": 76187,
-      "sha256": "a23de672fcd7f898449f80c6f0d9fc930109fcc7e237c48c864174e07368d2a3"
+      "path": "assets/admin-DHU37G52.js",
+      "bytes": 76188,
+      "sha256": "68a4de57f7b288f6af54b99ff5ed64eb33482251eb86210652ca9fece7470e15"
     },
     {
       "path": "assets/client-CQZL5JZC.js",
@@ -150,9 +150,9 @@
       "sha256": "159fe78fed01e96e872a600f0ca28d9dde80951c5fe1eea33adb05668f69ac41"
     },
     {
-      "path": "assets/start-88242c407256.js",
+      "path": "assets/start-4a55007f4260.js",
       "bytes": 240,
-      "sha256": "88242c40725666142569543baf10f342120514c3fb22fc53ba2ec1ac2a60d90b"
+      "sha256": "4a55007f4260682e490974ec64b38e8513351d12e604e7f627ab30a4b73499d3"
     },
     {
       "path": "assets/start-a9641041edce.js",
@@ -302,7 +302,7 @@
     {
       "path": "index.html",
       "bytes": 15176,
-      "sha256": "26dee7116feebdf51049af5caee7ded7136b3b2b30c3ff7f94525f03630ac3a9"
+      "sha256": "a952300157baaa652ecab04f2519fbb14964dae3eca9693e84fe3fe9e2aee167"
     },
     {
       "path": "login-cliente.html",
