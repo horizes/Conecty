@@ -4,11 +4,11 @@ O ambiente atual continua sendo de testes no GitHub Pages. O Supabase guarda cad
 
 ## Uso da equipe
 
-- Cada administrador cadastra pessoalmente um autenticador no primeiro acesso. Guarde um procedimento de recuperação com o responsável que possui acesso ao Supabase. Nunca envie códigos ou segredos do autenticador pelo chat.
+- Por solicitação do responsável em 25/10/2026, o acesso à plataforma usa e-mail e senha, sem exigir segundo fator administrativo. A separação de perfis e clientes continua no servidor.
 - Proprietário gerencia a equipe. Gestor configura os clientes atribuídos. Consulta e Operador não alteram chaves ou cadastros; Operador acompanha os diagnósticos.
 - Novos perfis começam em Consulta, sem clientes. Depois de confirmar o e-mail, o proprietário atribui as permissões necessárias.
 - Convites possuem destinatário fixo, uso único e confirmação de e-mail; os administrativos duram 24 horas.
-- “Manter conectado”: até 7 dias na administração e 30 dias no cliente. Use somente em aparelho pessoal. Sair remove a sessão lembrada e solicita seu encerramento ao servidor.
+- “Manter conectado”: sem prazo fixo definido pelo site, tanto na administração quanto no cliente. A sessão renova automaticamente enquanto o servidor a aceitar. Limpeza do navegador, revogação ou política do serviço podem exigir novo login. Use somente em aparelho pessoal. Sair remove a sessão lembrada e solicita seu encerramento ao servidor.
 - Em Configurações gerais → Saúde e histórico, confira resultado, tentativa, agenda, período e falhas. A coleta extraordinária pede confirmação, utiliza a cota Omie e tem intervalo mínimo de 15 minutos.
 - No cadastro, informe o plano Omie e de 3 a 36 meses de histórico. A atualização usa um orçamento compartilhado: o consumo de outras integrações no Omie permanece fora do controle desta plataforma. Um limite preserva o último resultado e aparece no diagnóstico.
 - Preferências são vinculadas à conta e à empresa. CSV neutraliza fórmulas em textos; Excel grava textos como texto e valores como número. PDF utiliza a impressão do navegador.
@@ -35,7 +35,7 @@ Para retornar o frontend, republique o conjunto completo de uma versão validada
 ## Decisões necessárias antes de uso comercial
 
 - Isolar teste/produção, definir domínio, remetente empresarial com SPF/DKIM/DMARC e validar entrega em provedores diferentes.
-- A proteção nativa contra senhas vazadas depende do plano Supabase Pro+. A senha mínima e o segundo fator foram reforçados sem contratar plano.
+- A proteção nativa contra senhas vazadas depende do plano Supabase Pro+. A senha mínima foi reforçada sem contratar plano. O segundo fator da plataforma foi retirado por solicitação do responsável.
 - O Pages não permite configurar os cabeçalhos de proteção de enquadramento desta aplicação. CSP e bloqueio de abertura em iframe são mitigadores; domínio próprio, cabeçalhos e sessão HttpOnly ainda exigem arquitetura/serviço apropriado.
 - Revisar as condições do GitHub Pages antes de comercializar um SaaS e tratar senhas nesse serviço. O pedido de manter o teste no Pages foi preservado; domínio próprio não altera os termos da hospedagem.
 - Definir política de privacidade, retenção, suporte, responsabilidades e critérios de classificação DFC com a Conecty. Esses documentos dependem das decisões do negócio; não foram inventados nem certificados juridicamente.
