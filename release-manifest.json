@@ -32,7 +32,7 @@
     {
       "path": "admin/painel.html",
       "bytes": 15170,
-      "sha256": "d831539c3c2207d6a81a7c704bf1f2eb091f9e67948123eddec98af11cfba95b"
+      "sha256": "44eb7da37522b084237438b78ef18d54cb5c546ab105f80458cc695307334971"
     },
     {
       "path": "admin/sw.js",
@@ -55,9 +55,9 @@
       "sha256": "4870f5ed79b293e49611352d71dadf88010966bfe0941b57322a5c48f3ef2400"
     },
     {
-      "path": "assets/client-QID5FBJP.js",
-      "bytes": 925,
-      "sha256": "673336e0c33e30ae720437deb8b10238867732d2b60f2055b318cb79b69c4c98"
+      "path": "assets/client-OXZE2YU3.js",
+      "bytes": 1018,
+      "sha256": "09da70f060109f2cdf9c7abe11d7bc5773ffce379407da7951c7a6ee9a46e7ab"
     },
     {
       "path": "assets/demo-FKWSS5LU.js",
@@ -160,14 +160,14 @@
       "sha256": "3ebfed911029f43bac14bdc6cb584166cbb4f7696edde1674d4fe4a30f5801bf"
     },
     {
-      "path": "assets/start-8bf841cdd3bc-admin.js",
+      "path": "assets/start-5ca858b952e5-admin.js",
       "bytes": 241,
-      "sha256": "220658a12b5a456160ae8d68c4a208b2bfae0494a330575de90199fd78b378db"
+      "sha256": "9c7002c7084f797eae0bcb87732bfe1845dd25c0a1669f0ea369d9f55e39529c"
     },
     {
-      "path": "assets/start-8bf841cdd3bc.js",
+      "path": "assets/start-5ca858b952e5.js",
       "bytes": 242,
-      "sha256": "8bf841cdd3bc88274d5adec9463210af13c4e658534c34535683f706cac5a7f1"
+      "sha256": "5ca858b952e5b458c264f07d32514cf3f709d25dfa171e3fc8df9800fb78a1a7"
     },
     {
       "path": "assets/start-a9641041edce.js",
@@ -237,7 +237,7 @@
     {
       "path": "cliente/painel.html",
       "bytes": 15166,
-      "sha256": "4809bbb51fa7293dc419d735b39203a420ba045d41cdf785b0f5ef679984b2ea"
+      "sha256": "c9062fc1e058548a4f171f479c4adafb93ae58abc78efaaf4948271b4e9cbfdc"
     },
     {
       "path": "cliente/sw.js",
@@ -252,7 +252,7 @@
     {
       "path": "cliente.html",
       "bytes": 15173,
-      "sha256": "8f76eacb4c928908e85297d2c05b32a1f37890066ea410cdd3a12a6b5a3deac3"
+      "sha256": "62129044ec1c1ba6e5af2ba985608c9c0e6d6770a8c4c83f7168f15c9380898f"
     },
     {
       "path": "COMO-PUBLICAR.md",
