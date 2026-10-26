@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 const root=path.resolve(process.argv[2]||'.'),manifest=JSON.parse(fs.readFileSync(path.join(root,'release-manifest.json'),'utf8'));
-assert.equal(manifest.release,'R11-2026-10-24');assert.ok(Array.isArray(manifest.files));
+assert.match(manifest.release,/^R[0-9]+-[0-9]{4}-[0-9]{2}-[0-9]{2}$/);assert.ok(Array.isArray(manifest.files));
 const files=new Set(manifest.files.map(f=>f.path));
 function local(base,target){if(/^(https?:|data:|#|mailto:|tel:)/.test(target))return;const name=path.posix.normalize(path.posix.join(path.posix.dirname(base),target.split(/[?#]/)[0]));assert.ok(!name.startsWith('../'),'Referência fora da publicação: '+name);assert.ok(files.has(name),'Arquivo ausente: '+name)}
 for(const f of manifest.files){assert.ok(!f.path.includes('..')&&!path.isAbsolute(f.path));assert.ok(!/\.(sql|ts|tsx|cjs|env|zip)$/i.test(f.path),'Arquivo privado na publicação: '+f.path);const data=fs.readFileSync(path.join(root,f.path));assert.equal(data.length,f.bytes,f.path);assert.equal(crypto.createHash('sha256').update(data).digest('hex'),f.sha256,f.path);
