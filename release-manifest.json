@@ -1,7 +1,7 @@
 {
   "release": "R12-2026-10-26",
   "api": "CONECTY-API-2026-10-26-R12",
-  "tests": 170,
+  "tests": 171,
   "dependencyAdvisories": 0,
   "files": [
     {
@@ -22,7 +22,7 @@
     {
       "path": "admin/index.html",
       "bytes": 15169,
-      "sha256": "afd5d62f64546e64de0143b657635678f32aea60b7fc756e7008fa2c199f25e1"
+      "sha256": "0fc9ba2246ba2f6952f1497b6c9d7dea44bde35ef77ca592c5906ee2a9c126e7"
     },
     {
       "path": "admin/manifest.webmanifest",
@@ -42,7 +42,7 @@
     {
       "path": "admin.html",
       "bytes": 15176,
-      "sha256": "5d32237a73b0304886f765b86dc7c92425a8746818f561ab4fabffc46ea9adf6"
+      "sha256": "55d37e8fcf04eca0c861040fb3b1343ec6c65c99d1ea0fbf3a35584801f46d7b"
     },
     {
       "path": "apple-touch-icon.png",
@@ -50,9 +50,9 @@
       "sha256": "65206a67e828ed7fd133afe0c22db96615979db88ba5fcc711618d72a5ab253c"
     },
     {
-      "path": "assets/admin-H46A5I4I.js",
-      "bytes": 72994,
-      "sha256": "1f3bc53055828fa903b0b6230be8ae89a036f4ee0297958a71c98cbcfc5bbdf0"
+      "path": "assets/admin-FXP5GIAN.js",
+      "bytes": 73529,
+      "sha256": "7d4fb29f1680494cd11704ca46b0b3001acd4327cc7b789698d83de258278222"
     },
     {
       "path": "assets/client-FVCMQ7QC.js",
@@ -155,6 +155,11 @@
       "sha256": "340559e8fcac1b851a81a786c7d3a2e6dd35dbc0d0d85ddd7e31d62914163153"
     },
     {
+      "path": "assets/start-445469558c8a.js",
+      "bytes": 944,
+      "sha256": "445469558c8a3c8d4150dcaf1e454bdc520f02faaaffa3d09a38e30e8bf74a65"
+    },
+    {
       "path": "assets/start-4aa79923cd06.js",
       "bytes": 944,
       "sha256": "4aa79923cd06596ed0e4853536e10671b500586a338173af6805bada335023d2"
@@ -173,11 +178,6 @@
       "path": "assets/start-61ef0cc86123.js",
       "bytes": 946,
       "sha256": "61ef0cc86123ab3ab901b0b07675ff86734095bed7d7a18d4372b56c770a6285"
-    },
-    {
-      "path": "assets/start-83d34e33be4c.js",
-      "bytes": 944,
-      "sha256": "83d34e33be4cfa9d2ff49d30186e3d82096c4a19190f58de3645440df651f25c"
     },
     {
       "path": "assets/style-432bfc0003c8.css",
@@ -302,7 +302,7 @@
     {
       "path": "index.html",
       "bytes": 15176,
-      "sha256": "5d32237a73b0304886f765b86dc7c92425a8746818f561ab4fabffc46ea9adf6"
+      "sha256": "55d37e8fcf04eca0c861040fb3b1343ec6c65c99d1ea0fbf3a35584801f46d7b"
     },
     {
       "path": "login-cliente.html",
