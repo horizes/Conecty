@@ -1,7 +1,7 @@
 {
   "release": "R12-2026-10-26",
   "api": "CONECTY-API-2026-10-26-R12",
-  "tests": 176,
+  "tests": 178,
   "dependencyAdvisories": 0,
   "files": [
     {
@@ -22,7 +22,7 @@
     {
       "path": "admin/index.html",
       "bytes": 15169,
-      "sha256": "78c766895574789a6ab0b7fbc00d2ccb75469366d7fbd892e00e8f657d3e78ae"
+      "sha256": "491adf3efe06e7afe5ef7ae0d0b80349c016a3f7fda2cd9cff4462cbd79f7dd3"
     },
     {
       "path": "admin/manifest.webmanifest",
@@ -42,7 +42,7 @@
     {
       "path": "admin.html",
       "bytes": 15176,
-      "sha256": "93c2d2067ce3a4f5ed79d1834ca5828c33a0694ba1d70c29fe23b41bcf7c8af6"
+      "sha256": "2d0ae9d2636d03b1efaeb185cd47eef26c8ebec5473e1b9ad9fa0364f8ea9d6a"
     },
     {
       "path": "apple-touch-icon.png",
@@ -50,9 +50,9 @@
       "sha256": "65206a67e828ed7fd133afe0c22db96615979db88ba5fcc711618d72a5ab253c"
     },
     {
-      "path": "assets/admin-LC26DKYJ.js",
-      "bytes": 76523,
-      "sha256": "2d9488f6e4f69a7baba35e3bd897179dbf199f466a04ee3f344cce665c9c1d54"
+      "path": "assets/admin-H2XEJKNZ.js",
+      "bytes": 76806,
+      "sha256": "afffabae3b55d2cb104fe330b3d6ff6f3f41fdcfd951098b2ff721b0eeb0e77e"
     },
     {
       "path": "assets/client-ZK67DPMD.js",
@@ -160,6 +160,11 @@
       "sha256": "1f0e2181849a1562f2ea9300cfb5834f64467f8aea0d824184364be3a3174b75"
     },
     {
+      "path": "assets/start-177867aa0f00.js",
+      "bytes": 944,
+      "sha256": "177867aa0f00e94bef73e94dd51ab7845994231988f4fd63bba38b43b5c264b8"
+    },
+    {
       "path": "assets/start-2c47508bebdb.js",
       "bytes": 945,
       "sha256": "2c47508bebdb36c0caf20bda1daf248d46527cfe2154eee32dd8002f8d99fad0"
@@ -188,11 +193,6 @@
       "path": "assets/start-dd360a8b8402.js",
       "bytes": 946,
       "sha256": "dd360a8b84023cd2472ed22ae25c275c2d214c572c972eea6543a7ae5f270841"
-    },
-    {
-      "path": "assets/start-f2d89390eedb.js",
-      "bytes": 944,
-      "sha256": "f2d89390eedb2275c60a7f49fa6935df84a292239e53df7f2bedc6e4c6c6b9fb"
     },
     {
       "path": "assets/style-ad104ad69c00.css",
@@ -317,7 +317,7 @@
     {
       "path": "index.html",
       "bytes": 15176,
-      "sha256": "93c2d2067ce3a4f5ed79d1834ca5828c33a0694ba1d70c29fe23b41bcf7c8af6"
+      "sha256": "2d0ae9d2636d03b1efaeb185cd47eef26c8ebec5473e1b9ad9fa0364f8ea9d6a"
     },
     {
       "path": "login-cliente.html",
@@ -341,8 +341,8 @@
     },
     {
       "path": "manual-interno.pdf",
-      "bytes": 2255384,
-      "sha256": "a28e131837875379bd519b08a9fabeb4271f4d40b437c407604bac6fc326e1a2"
+      "bytes": 2255471,
+      "sha256": "ee23bf234090923e6cd55b9e5e49cc8f5a40d096a2e736f0b4571ed03593f447"
     },
     {
       "path": "OPERACAO-E-RECUPERACAO-R11.md",
