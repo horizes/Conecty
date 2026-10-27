@@ -22,7 +22,7 @@
     {
       "path": "admin/index.html",
       "bytes": 15169,
-      "sha256": "67b71a709972c877757a3c45c02282ecace2a5af8cdaa953e9377fb7ce8619d2"
+      "sha256": "8e8b9b9600ec826bc3e975a5a11a3c24818887194f84162001453f33dc0efc03"
     },
     {
       "path": "admin/manifest.webmanifest",
@@ -42,7 +42,7 @@
     {
       "path": "admin.html",
       "bytes": 15176,
-      "sha256": "7f88b99c7e2e48c7e29d845df42cb64badce298ffe71e72f49983d171d7e024b"
+      "sha256": "b2ca1a02b3e4ec9eaf1ff9eab5c83f07f5f2d7ac730c8b01a49c12bb6b6aadd9"
     },
     {
       "path": "apple-touch-icon.png",
@@ -50,9 +50,9 @@
       "sha256": "65206a67e828ed7fd133afe0c22db96615979db88ba5fcc711618d72a5ab253c"
     },
     {
-      "path": "assets/admin-VVE5U67S.js",
+      "path": "assets/admin-XQ6QL5GB.js",
       "bytes": 76806,
-      "sha256": "83be0ba00c6529e63a4b09bfaa3ae12fc6d948028d0fd7e3929f4dd93bc66d64"
+      "sha256": "375bed1579dd1d9a4505ee91ada1c617b918c1bf0018059bc5d4766a27d0f9c9"
     },
     {
       "path": "assets/client-ZK67DPMD.js",
@@ -80,9 +80,9 @@
       "sha256": "71cff3618f7fc654104b27212ac3b169fc0555e49d6c6f5fa326d7f79d618e9a"
     },
     {
-      "path": "assets/shared-B6UT4UCJ.js",
-      "bytes": 32419,
-      "sha256": "dad19dc78b5910620017c80fa598eeae25da38382654aa7b42618df5ef9679ec"
+      "path": "assets/shared-AL6XKGHC.js",
+      "bytes": 32420,
+      "sha256": "47a1a6deb7bd58edc1018bda6ab611631fefabe9d0ad44175cb6b347c59521ac"
     },
     {
       "path": "assets/shared-DBNNBMKS.js",
@@ -170,6 +170,11 @@
       "sha256": "580eb6bfdfede7c25aa84ec4ba031e1a3db893f1654f55c368b2734dbc5ef5a8"
     },
     {
+      "path": "assets/start-5b8147ed0120.js",
+      "bytes": 944,
+      "sha256": "5b8147ed0120bb2172c81d7c5d17017d5a6bcc470fc4b0c076884112899d5320"
+    },
+    {
       "path": "assets/start-88d9ec9222a1.js",
       "bytes": 952,
       "sha256": "88d9ec9222a18971713466c3378dcd65f2053be2ae22cef27a0305f9b3075d8d"
@@ -178,11 +183,6 @@
       "path": "assets/start-9b55e1186727.js",
       "bytes": 951,
       "sha256": "9b55e1186727710b884ae99c6126e8160e5f46b35078c5f6269ef5f622296fcf"
-    },
-    {
-      "path": "assets/start-cb9f5ef7be3b.js",
-      "bytes": 944,
-      "sha256": "cb9f5ef7be3bde27187f803f1c13ac905bb8ed45cd672662514727a21c5b5c26"
     },
     {
       "path": "assets/start-dd360a8b8402-admin.js",
@@ -317,7 +317,7 @@
     {
       "path": "index.html",
       "bytes": 15176,
-      "sha256": "7f88b99c7e2e48c7e29d845df42cb64badce298ffe71e72f49983d171d7e024b"
+      "sha256": "b2ca1a02b3e4ec9eaf1ff9eab5c83f07f5f2d7ac730c8b01a49c12bb6b6aadd9"
     },
     {
       "path": "login-cliente.html",
