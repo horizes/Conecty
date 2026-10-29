@@ -21,7 +21,7 @@
     {
       "path": "admin/index.html",
       "bytes": 15169,
-      "sha256": "59d5784827d79c1bcfcf201d3e01897519d2a72e8294af4f8a501aad696663c3"
+      "sha256": "5b8e95fa1d537dc1583e1aae830d3114930a2f2054eb0f003cfc6689cd3f5716"
     },
     {
       "path": "admin/manifest.webmanifest",
@@ -41,7 +41,7 @@
     {
       "path": "admin.html",
       "bytes": 15176,
-      "sha256": "f8282190545d60cfedb66cdfc2e27de0596e5eeb6fe734936a0b3ddbe08f90b1"
+      "sha256": "3611034cb33123e5cceaa215d58900690d68bad81fdfcbfdb504ff2dcd59340d"
     },
     {
       "path": "apple-touch-icon.png",
@@ -49,9 +49,9 @@
       "sha256": "65206a67e828ed7fd133afe0c22db96615979db88ba5fcc711618d72a5ab253c"
     },
     {
-      "path": "assets/admin-RKMMBFS5.js",
-      "bytes": 83060,
-      "sha256": "1d77db4191c4d0221ace7e50aef042ee830ffb676b2b3d3e60b28489d2eff558"
+      "path": "assets/admin-Q65K6NJW.js",
+      "bytes": 83084,
+      "sha256": "c4ed73fced6f3226d23012d6736cb5e8f485bb9d841aa79dc7beea6e2f8ff812"
     },
     {
       "path": "assets/client-Z5RWW47E.js",
@@ -204,6 +204,11 @@
       "sha256": "434a0b17fe7ba1058ed9103b21ddcb738f9e69ad2318db8466a4fa0a61322269"
     },
     {
+      "path": "assets/start-4623117a44fb.js",
+      "bytes": 1444,
+      "sha256": "4623117a44fb07b8321142fa5689b316a2ddb1ecdeb4cbafb5e569d5dd48b40a"
+    },
+    {
       "path": "assets/start-aed166fdb1e1.js",
       "bytes": 1451,
       "sha256": "aed166fdb1e10aa314952269945552f614b7caecab12f5a4824fa515e6a45ae9"
@@ -222,11 +227,6 @@
       "path": "assets/start-d24185dc08f9.js",
       "bytes": 1445,
       "sha256": "d24185dc08f98fe7891a854866ee54063d984e97f018f02ea4f638a7164152bc"
-    },
-    {
-      "path": "assets/start-f4370181a272.js",
-      "bytes": 1444,
-      "sha256": "f4370181a272066e2991f12d7a07be9375e04726e3046ad6ba3a15069b884b8c"
     },
     {
       "path": "assets/style-52a777c80997.css",
@@ -356,7 +356,7 @@
     {
       "path": "index.html",
       "bytes": 15176,
-      "sha256": "f8282190545d60cfedb66cdfc2e27de0596e5eeb6fe734936a0b3ddbe08f90b1"
+      "sha256": "3611034cb33123e5cceaa215d58900690d68bad81fdfcbfdb504ff2dcd59340d"
     },
     {
       "path": "instalar-cliente.html",
