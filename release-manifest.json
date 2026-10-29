@@ -1,7 +1,7 @@
 {
-  "release": "R30-2026-10-29",
+  "release": "R31-2026-10-29",
   "api": "CONECTY-API-2026-10-26-R12",
-  "tests": 227,
+  "tests": 230,
   "files": [
     {
       "path": ".nojekyll",
@@ -21,7 +21,7 @@
     {
       "path": "admin/index.html",
       "bytes": 15169,
-      "sha256": "95fde5209cb84aa28f72b869e99722307926cdec670137d80f5fba060e9e8af7"
+      "sha256": "111075579f40d13222dc545a7fb4225979873f0fc9f53051696e7686f5e42252"
     },
     {
       "path": "admin/manifest.webmanifest",
@@ -41,7 +41,7 @@
     {
       "path": "admin.html",
       "bytes": 15176,
-      "sha256": "44db3da82d8ac351e3d70272ad4b8eddc5fdd6b783b565c5b2e2f6f43a941c54"
+      "sha256": "f3c0237c1470fc27ff5839da3f05bb4456f1b10e99484161d5c4e7aeb0165cd7"
     },
     {
       "path": "apple-touch-icon.png",
@@ -49,9 +49,9 @@
       "sha256": "65206a67e828ed7fd133afe0c22db96615979db88ba5fcc711618d72a5ab253c"
     },
     {
-      "path": "assets/admin-M666G347.js",
-      "bytes": 83084,
-      "sha256": "5ca2304693750281814ba3f57e95042c539b740670447114efc42e1074ff7f10"
+      "path": "assets/admin-TU2VSU5E.js",
+      "bytes": 85403,
+      "sha256": "8048a50b9ad61f57cc06b9cc056239c0a0535e57e9b82e776779c3e3382fec8c"
     },
     {
       "path": "assets/client-2RGNBY2A.js",
@@ -194,11 +194,6 @@
       "sha256": "00d9cb518b79597277ea4ff332c1521ed9a446ff332f67f87adb69f8f21cc87d"
     },
     {
-      "path": "assets/start-170aa9640144.js",
-      "bytes": 1444,
-      "sha256": "170aa9640144b273eb89f72ab6d79e879aa5a1bd6ea4ec78c58d4bb70df7555f"
-    },
-    {
       "path": "assets/start-30ae566ed2db-admin.js",
       "bytes": 1445,
       "sha256": "9f0d25cb623b4e4aaf159a0cc10b313fe8a3e4f06b0f056864621a96679bfcca"
@@ -212,6 +207,11 @@
       "path": "assets/start-3ae8ad672b17.js",
       "bytes": 1447,
       "sha256": "3ae8ad672b17d78c4f9c4fdf8bbb7101ca601f5a221c2acf5c725765ec9e4f2b"
+    },
+    {
+      "path": "assets/start-42237e46a7ab.js",
+      "bytes": 1444,
+      "sha256": "42237e46a7ab4f37fbe0db678932b0965cc3959c63b85008926e2f5818c83c61"
     },
     {
       "path": "assets/start-4438663152b4.js",
@@ -356,7 +356,7 @@
     {
       "path": "index.html",
       "bytes": 15176,
-      "sha256": "44db3da82d8ac351e3d70272ad4b8eddc5fdd6b783b565c5b2e2f6f43a941c54"
+      "sha256": "f3c0237c1470fc27ff5839da3f05bb4456f1b10e99484161d5c4e7aeb0165cd7"
     },
     {
       "path": "instalar-cliente.html",
