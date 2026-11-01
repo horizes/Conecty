@@ -1,0 +1,1 @@
+import{qa as o}from"./shared-SMITOP57.js";import{c as p}from"./shared-UMM5QLAE.js";var s=p(o(),1);function a({desktop:e,mobile:n}){return(0,s.jsxs)(s.Fragment,{children:[(0,s.jsx)("span",{className:"copy-desktop",children:e}),(0,s.jsx)("span",{className:"copy-mobile",children:n})]})}export{a};
