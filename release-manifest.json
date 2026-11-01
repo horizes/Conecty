@@ -21,7 +21,7 @@
     {
       "path": "admin/index.html",
       "bytes": 15169,
-      "sha256": "fc9746488601d9177795e73c71ff32b5f07761e86a6692bbb250a78e19fbbf8c"
+      "sha256": "cccc02c671e13b81aebedf0a2819e3a58b6aa31ac0b8897f797b9db6254b9625"
     },
     {
       "path": "admin/manifest.webmanifest",
@@ -31,7 +31,7 @@
     {
       "path": "admin/painel.html",
       "bytes": 15170,
-      "sha256": "6b398c7838d97a19d974809b4e224036fe15e3d8ee475f437ffc2eac3b9e5152"
+      "sha256": "0fc7ce1e02cc234192079f77d2c71031e4c04c0394f6e1c81515dc037b1bb326"
     },
     {
       "path": "admin/sw.js",
@@ -41,7 +41,7 @@
     {
       "path": "admin.html",
       "bytes": 15176,
-      "sha256": "1bc7584bb6c838c24caafcb083887f3faa0c15f6dca10313abd500ee8daae0c0"
+      "sha256": "6c4d5a9b4f7c26596377b0a28653d150821e6ab5b417ad13034d676146b44fba"
     },
     {
       "path": "apple-touch-icon.png",
@@ -229,9 +229,9 @@
       "sha256": "ca9ea6114f55294a87aec6499002b8859b8659827415f8d7edea7e8ef840804d"
     },
     {
-      "path": "assets/style-fb56b80f7069.css",
-      "bytes": 201308,
-      "sha256": "fb56b80f706951e9dd38a5b4a526f4906818645c67e5977430a1ec116ed36194"
+      "path": "assets/style-0a1538b7da0c.css",
+      "bytes": 201305,
+      "sha256": "0a1538b7da0c1699696a1c09466d8bc24651d2f7134f1b08a05ed9862c74af73"
     },
     {
       "path": "ATUALIZACAO-DIARIA-E-APPS.md",
@@ -251,12 +251,12 @@
     {
       "path": "cadastro-admin.html",
       "bytes": 15053,
-      "sha256": "7b1ffb4c5337b74a5bebc531737a8537d6143fba4620e55991474a01d6c83090"
+      "sha256": "29093676878d0e9f7da1c878cb5796074aa9b1f0ea541133bd8fba50755b733d"
     },
     {
       "path": "cadastro-cliente.html",
       "bytes": 15045,
-      "sha256": "da976674113e2adca10a3291e923ffcf1171c05a2ed193d7da3424557295ed47"
+      "sha256": "f078c75af0226daa0596ea76f93298a866185fa90bf29f59d96a5c308cd6f61c"
     },
     {
       "path": "CADASTRO-POR-CONVITE.md",
@@ -276,12 +276,12 @@
     {
       "path": "cliente/index.html",
       "bytes": 15194,
-      "sha256": "ad5eca13997c438aded5bc13bc76b1a3c8a6324bdb33addb9a281fa87e516554"
+      "sha256": "7d79c88546a9a06804bf5894ae082dc0372f6c1b536d2ae78cdf3cd0543a6cdf"
     },
     {
       "path": "cliente/instalar.html",
       "bytes": 15197,
-      "sha256": "78f050e7acd625ca8ff7f12850972e6ee8214dc6fc898ac699d1c46695c4de26"
+      "sha256": "cae9b6798001b752776f397a780e6820bbf4277780289ec0bbb81b9997bf38a4"
     },
     {
       "path": "cliente/manifest.webmanifest",
@@ -291,7 +291,7 @@
     {
       "path": "cliente/painel.html",
       "bytes": 15166,
-      "sha256": "6f2b3f33712a527f50d43d95a6871154d64229dad25495d2bd6032abb5bd4bb9"
+      "sha256": "77229b3af0782439ef656e65a5cddfc3a532bed9831befdb1d9f6751a82c6417"
     },
     {
       "path": "cliente/sw.js",
@@ -301,12 +301,12 @@
     {
       "path": "cliente-demo.html",
       "bytes": 14916,
-      "sha256": "e213d5903968319543cb6fcd0abbad453e7a876f2ada4d50c468a222df361228"
+      "sha256": "93281d870529c61f6fe4e00261f9df1f38000617b182cbb253eaa110dc80c9bf"
     },
     {
       "path": "cliente.html",
       "bytes": 15173,
-      "sha256": "6b33a0bad505a3d6d8ceda341537841b24bf2b3883f5deb5635ba1301adb405d"
+      "sha256": "4858cda0eaf5d07e39f36334d97e1ace3596e60c583436cfe9ab444ad1c8d53d"
     },
     {
       "path": "COMO-PUBLICAR.md",
@@ -356,17 +356,17 @@
     {
       "path": "index.html",
       "bytes": 15176,
-      "sha256": "1bc7584bb6c838c24caafcb083887f3faa0c15f6dca10313abd500ee8daae0c0"
+      "sha256": "6c4d5a9b4f7c26596377b0a28653d150821e6ab5b417ad13034d676146b44fba"
     },
     {
       "path": "instalar-cliente.html",
       "bytes": 15204,
-      "sha256": "383128d558cf62c6f65ae2dbdf9bdfdf2d90f51d02eb313d8e87aecb7dc33204"
+      "sha256": "881fb0f6da4e08c0e25ca7079ae960c87dd62a5d234229fc0673498f333e1f25"
     },
     {
       "path": "login-cliente.html",
       "bytes": 15201,
-      "sha256": "ac1be7c1c53aebfd269f4da1c87648f56d8e684edd095af3869fbbd25214d5b5"
+      "sha256": "3c55e1d572eef85f4def7d6c4d720bcd041d8c1597061778575f5ff6beb85ce3"
     },
     {
       "path": "LOGO-E-HORARIO.md",
