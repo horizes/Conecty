@@ -1,0 +1,1 @@
+function r(n){let t=new URLSearchParams(n),e=t.get("empresa");return e&&/^[a-z0-9][a-z0-9-]{1,62}$/.test(e)?e:void 0}function a(n,t=""){let e=r(n);return(t.includes("/cliente/")?"painel.html":"cliente.html")+(e?"?empresa="+encodeURIComponent(e):"")}export{r as a,a as b};

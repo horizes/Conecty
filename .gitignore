@@ -1,0 +1,31 @@
+# Build e publicação
+_site/
+*.zip
+*.7z
+
+# Pacotes internos (nunca publicar)
+manual-interno.pdf
+*.pdf
+
+# Ambiente e segredos
+.env
+.env.*
+!.env.example
+supabase/.env
+supabase/.temp/
+supabase/.branches/
+.supabase/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp

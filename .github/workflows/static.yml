@@ -1,0 +1,65 @@
+name: Validar e publicar Conecty Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Validar conteúdo público
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.3.0
+      - name: Conferir integridade e segurança dos arquivos públicos
+        run: node ci/verify-public.mjs .
+      - name: Conferir higiene do repositório
+        run: node ci/check-hygiene.mjs .
+      - name: Conferir migrations
+        run: node ci/check-migrations.mjs .
+
+  publish:
+    name: Publicar no GitHub Pages
+    needs: verify
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.3.0
+      - name: Preparar somente o conteúdo público validado
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          const manifest=JSON.parse(fs.readFileSync('release-manifest.json','utf8'));
+          fs.mkdirSync('_site',{recursive:true});
+          for(const {path:name} of [...manifest.files,{path:'release-manifest.json'}]){
+            const target=path.join('_site',name);fs.mkdirSync(path.dirname(target),{recursive:true});fs.copyFileSync(name,target);
+          }
+          NODE
+      - name: Configurar Pages
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
+      - name: Empacotar site
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          path: _site
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
