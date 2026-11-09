@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Política de Privacidade | Conecty</title>
+<!--
+  MODELO PARA REVISÃO JURÍDICA.
+  Antes de publicar:
+  1. Substitua todos os campos [PREENCHER].
+  2. Confirme controlador, suboperadores e prazos de retenção em docs/LGPD.md.
+  3. Remova este comentário e o aviso de "modelo".
+  4. Mova o arquivo para a raiz como privacidade.html e inclua no release-manifest.json.
+  5. Linke no login e no cadastro.
+-->
+<style>
+  :root { color-scheme: light dark; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.65; }
+  main { max-width: 820px; margin: 0 auto; padding: 40px 24px 80px; }
+  h1 { font-size: 2rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; }
+  .meta { opacity: .7; font-size: .9rem; }
+  .notice { border-left: 4px solid #d97706; padding: 12px 16px; margin: 24px 0; background: rgba(217,119,6,.08); }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  th, td { border: 1px solid rgba(127,127,127,.35); padding: 8px 10px; text-align: left; vertical-align: top; }
+</style>
+</head>
+<body>
+<main>
+  <div class="notice"><strong>Modelo.</strong> Este texto precisa de revisão jurídica e do preenchimento dos dados do controlador antes de ser publicado.</div>
+
+  <h1>Política de Privacidade</h1>
+  <p class="meta">Última atualização: [PREENCHER: data]. Versão 1.0.</p>
+
+  <p>Esta política explica como a <strong>[PREENCHER: razão social]</strong>, CNPJ <strong>[PREENCHER: CNPJ]</strong>, com endereço em <strong>[PREENCHER: endereço]</strong> ("Conecty"), trata dados pessoais no painel financeiro disponibilizado em <strong>[PREENCHER: domínio]</strong>.</p>
+
+  <h2>1. Quem é o controlador</h2>
+  <p>O controlador dos dados é <strong>[PREENCHER: definir se é a Conecty ou o cliente contratante]</strong>. O encarregado pelo tratamento de dados (DPO) pode ser contatado em <strong>[PREENCHER: e-mail do encarregado]</strong>.</p>
+
+  <h2>2. Quais dados tratamos</h2>
+  <table>
+    <tr><th>Categoria</th><th>Exemplos</th><th>Origem</th></tr>
+    <tr><td>Conta e acesso</td><td>Nome, e-mail, papel, vínculos com empresas, sessões e dispositivos</td><td>Cadastro, convite e uso do sistema</td></tr>
+    <tr><td>Empresa</td><td>Nome, segmento, logo, plano Omie</td><td>Cadastro feito pela administração</td></tr>
+    <tr><td>Financeiro</td><td>Contas, categorias, títulos, fluxo de caixa e DFC</td><td>Integração autorizada com o Omie</td></tr>
+    <tr><td>Credenciais de integração</td><td>App Key e App Secret do Omie, criptografados</td><td>Informados pelo administrador</td></tr>
+    <tr><td>Segurança</td><td>IP, user-agent, eventos de login, alterações de permissão</td><td>Uso do sistema</td></tr>
+    <tr><td>Notificações</td><td>Inscrição push do navegador</td><td>Consentimento no dispositivo</td></tr>
+  </table>
+
+  <h2>3. Para que usamos</h2>
+  <ul>
+    <li>autenticar usuários e aplicar permissões por empresa;</li>
+    <li>sincronizar e apresentar dados financeiros do Omie;</li>
+    <li>gerar relatórios, DFC e exportações solicitadas;</li>
+    <li>prevenir fraude, abuso e acessos não autorizados;</li>
+    <li>cumprir obrigações legais, fiscais e regulatórias;</li>
+    <li>enviar notificações operacionais mediante consentimento.</li>
+  </ul>
+
+  <h2>4. Bases legais</h2>
+  <p>Tratamos dados com base na execução de contrato (art. 7º, V), cumprimento de obrigação legal (art. 7º, II), legítimo interesse para segurança (art. 7º, IX) e consentimento para notificações (art. 7º, I), conforme o caso.</p>
+
+  <h2>5. Com quem compartilhamos</h2>
+  <ul>
+    <li><strong>Supabase</strong> — banco de dados, autenticação e funções;</li>
+    <li><strong>Omie</strong> — integração autorizada pelo cliente;</li>
+    <li><strong>GitHub Pages</strong> — hospedagem do frontend estático;</li>
+    <li><strong>[PREENCHER: Cloudflare ou outro provedor de borda, se usado]</strong>;</li>
+    <li>autoridades, quando houver obrigação legal.</li>
+  </ul>
+  <p>Alguns provedores podem processar dados fora do Brasil. Nesses casos, adotamos salvaguardas contratuais adequadas, incluindo cláusulas-padrão quando aplicável.</p>
+
+  <h2>6. Por quanto tempo guardamos</h2>
+  <table>
+    <tr><th>Dado</th><th>Prazo</th></tr>
+    <tr><td>Conta e vínculos</td><td>Enquanto a conta existir; exclusão em até 30 dias após o pedido</td></tr>
+    <tr><td>Credenciais Omie</td><td>Até a revogação + 30 dias</td></tr>
+    <tr><td>Dados financeiros</td><td>5 anos, para fins fiscais e contábeis</td></tr>
+    <tr><td>Auditoria de segurança</td><td>365 dias</td></tr>
+    <tr><td>Contadores antiabuso</td><td>1 dia</td></tr>
+    <tr><td>Backups</td><td>[PREENCHER: prazo] dias</td></tr>
+  </table>
+
+  <h2>7. Seus direitos</h2>
+  <p>Você pode solicitar confirmação de tratamento, acesso, correção, anonimização, portabilidade, eliminação de dados desnecessários e informação sobre compartilhamentos. Envie o pedido para <strong>[PREENCHER: e-mail do encarregado]</strong>. Responderemos em até 15 dias, após confirmar sua identidade. Dados com guarda legal podem ser mantidos pelo prazo obrigatório, com acesso restrito.</p>
+
+  <h2>8. Segurança</h2>
+  <p>Adotamos criptografia em trânsito, credenciais criptografadas em repouso, isolamento por cliente (RLS), controle de acesso por papel, registro de auditoria, limite de tentativas e backups protegidos. Nenhum sistema é totalmente imune; em caso de incidente relevante, notificaremos a ANPD e os titulares afetados nos prazos aplicáveis.</p>
+
+  <h2>9. Cookies e armazenamento local</h2>
+  <p>Usamos armazenamento do navegador para manter a sessão e preferências. Não usamos cookies de publicidade. O service worker não armazena dados financeiros. Você pode limpar o armazenamento a qualquer momento, o que encerra a sessão lembrada.</p>
+
+  <h2>10. Alterações</h2>
+  <p>Podemos atualizar esta política para refletir mudanças legais ou do serviço. A data e a versão no topo serão alteradas e, em mudanças relevantes, avisaremos pelo painel.</p>
+
+  <h2>11. Contato</h2>
+  <p>Controlador: <strong>[PREENCHER: razão social, CNPJ, endereço]</strong><br>
+  Encarregado (DPO): <strong>[PREENCHER: nome e e-mail]</strong><br>
+  Canal de privacidade: <strong>[PREENCHER: e-mail ou formulário]</strong></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,50 @@
+name: Aplicar migrations
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Ambiente alvo"
+        required: true
+        default: staging
+        type: choice
+        options:
+          - staging
+          - production
+
+permissions:
+  contents: read
+
+concurrency:
+  group: migrations-${{ inputs.environment }}
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    name: Migrations (${{ inputs.environment }})
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    env:
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      SUPABASE_PROJECT_REF: ${{ secrets.SUPABASE_PROJECT_REF }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.3.0
+      - name: Conferir migrations
+        run: node ci/check-migrations.mjs .
+      - name: Instalar Supabase CLI
+        uses: supabase/setup-cli@1dedf2c611547ede7232d26866dd3c56ab903bbb # v1
+        with:
+          version: latest
+      - name: Conferir configuração
+        run: |
+          test -n "$SUPABASE_ACCESS_TOKEN" || { echo "::error::SUPABASE_ACCESS_TOKEN ausente"; exit 1; }
+          test -n "$SUPABASE_PROJECT_REF" || { echo "::error::SUPABASE_PROJECT_REF ausente"; exit 1; }
+          test -n "$SUPABASE_DB_PASSWORD" || { echo "::error::SUPABASE_DB_PASSWORD ausente"; exit 1; }
+      - name: Vincular projeto
+        run: supabase link --project-ref "$SUPABASE_PROJECT_REF"
+      - name: Simular aplicação
+        run: supabase db push --dry-run
+      - name: Aplicar migrations
+        run: supabase db push
